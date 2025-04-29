@@ -3,8 +3,8 @@ import Button from "../components/Button.vue";
 </script>
 
 <template>
-  <section>
-    <div>
+  <section class="h-[100dvh]">
+    <div class="flex h-full flex-col justify-center">
       <h1 class="title-h1 mb-2 text-white lg:mb-6 lg:w-[8ch] lg:text-9xl">
         Matteo Negri
       </h1>
@@ -13,7 +13,11 @@ import Button from "../components/Button.vue";
       >
         Web Developer UX Designer & Videoscribe Specialist.
       </p>
-      <Button variant="secondary" label="Get In Touch" class="lg:hidden" />
+      <Button
+        variant="secondary"
+        label="Get In Touch"
+        class="self-start lg:hidden"
+      />
     </div>
   </section>
 </template>
