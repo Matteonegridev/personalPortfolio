@@ -62,11 +62,11 @@ watchEffect(() => {
 </script>
 
 <template>
-  <header class="fixed top-0 right-0 left-0 lg:mx-[var(--margin-desktop)]">
+  <header class="fixed top-0 right-0 left-0 lg:px-10">
     <nav
       :class="
         clsx('relative flex items-center justify-between p-8', {
-          'backdrop-blur-sm transition duration-150 ease-in':
+          'backdrop-blur-sm transition duration-350 ease-in':
             isWindowScrolling && !isMenuOpen,
         })
       "
