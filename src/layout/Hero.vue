@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import Button from "../components/Button.vue";
+import { motion, useTime, useTransform } from "motion-v";
+
+const time = useTime();
+const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });
+const rotateBg = useTransform(rotate, (r) => {
+  return `conic-gradient(from ${r}deg,  #d4c6fd, #5639fa)`;
+});
 </script>
 
 <template>
@@ -13,11 +20,18 @@ import Button from "../components/Button.vue";
       >
         Web Developer UX Designer & Videoscribe Specialist.
       </p>
-      <Button
-        variant="secondary"
-        label="Get In Touch"
-        class="self-start lg:hidden"
-      />
+
+      <div class="relative self-start lg:hidden">
+        <Button
+          variant="secondary"
+          label="Get In Touch"
+          class="bg-dark relative -z-10 border-2"
+        />
+        <motion.div
+          class="absolute -inset-[1px] -z-20"
+          :style="{ background: rotateBg, filter: 'blur(10px)' }"
+        />
+      </div>
     </div>
   </section>
 </template>

@@ -23,5 +23,6 @@ const variantClasses = {
     :class="clsx('px-6 py-4', variantClasses[props.variant], props.className)"
   >
     {{ label }}
+    <slot />
   </button>
 </template>

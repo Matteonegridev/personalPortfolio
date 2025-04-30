@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import Logo from "../utils/LogoColor.vue";
 import LogoWhite from "../utils/LogoWhite.vue";
-import { easeIn, easeOut, motion } from "motion-v";
+import Button from "./Button.vue";
+import { easeIn, easeOut, motion, useTime, useTransform } from "motion-v";
+import clsx from "clsx";
 
 const navLinks = ["About Me", "Projects", "Contact Me"];
 
+const time = useTime();
+const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });
+const rotateBg = useTransform(rotate, (r) => {
+  return `conic-gradient(from ${r}deg,  #d4c6fd, #5639fa)`;
+});
+
 const isMenuOpen = ref(false);
+const isWindowScrolling = ref(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -40,19 +49,55 @@ const navbar = {
     },
   },
 };
+
+watchEffect(() => {
+  const handleScroll = () => {
+    isWindowScrolling.value = window.scrollY > 100;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
-  <header class="fixed top-0 right-0 left-0 z-50">
-    <nav class="relative flex items-center justify-between p-8">
-      <div v-if="!isMenuOpen" class="inline">
-        <Logo />
+  <header class="fixed top-0 right-0 left-0 lg:mx-[var(--margin-desktop)]">
+    <nav
+      :class="
+        clsx('relative flex items-center justify-between p-8', {
+          'backdrop-blur-sm transition duration-150 ease-in':
+            isWindowScrolling && !isMenuOpen,
+        })
+      "
+    >
+      <div :class="isMenuOpen ? 'z-50' : ''">
+        <component :is="isMenuOpen ? LogoWhite : Logo" />
       </div>
-      <div v-else class="z-50">
-        <LogoWhite />
+      <!-- Desktop -->
+      <ul
+        class="body-font-desktop flex items-center gap-10 font-bold max-lg:hidden"
+      >
+        <li
+          class="hover:text-secondary cursor-pointer text-white"
+          v-for="link of navLinks"
+        >
+          {{ link }}
+        </li>
+      </ul>
+      <div class="relative ml-auto max-lg:hidden">
+        <Button
+          variant="secondary"
+          label="Get In Touch"
+          class="hover:text-secondary bg-dark hover:border-secondary button-effect relative z-10 w-[12.5ch] cursor-pointer transition-all duration-250 ease-in hover:pr-10 hover:pl-5"
+        />
+        <motion.div
+          class="absolute -inset-[1px]"
+          :style="{ background: rotateBg, filter: 'blur(10px)' }"
+        />
       </div>
       <button
-        class="z-50 flex flex-col gap-1 lg:hidden"
+        :class="clsx('z-50 flex flex-col gap-1 lg:hidden')"
         @click="toggleMenu"
         aria-label="Toggle menu"
       >
@@ -61,7 +106,7 @@ const navbar = {
         <span class="h-1 w-8 bg-white"></span>
       </button>
     </nav>
-
+    <!-- Mobile -->
     <motion.nav
       :variants="navbar"
       initial="hidden"
@@ -77,7 +122,7 @@ const navbar = {
           :key="link"
           class="title-mobile-h2 w-full px-10 py-5 text-white"
         >
-          <a href="#">{{ link }}</a>
+          <a :href="'#' + link" @click="toggleMenu">{{ link }}</a>
         </motion.li>
 
         <div class="flex justify-around">
