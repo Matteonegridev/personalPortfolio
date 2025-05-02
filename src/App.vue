@@ -3,6 +3,7 @@ import Hero from "./layout/Hero.vue";
 import Navbar from "./components/Navbar.vue";
 import About from "./layout/About.vue";
 import Banner from "./utils/Banner.vue";
+import Projects from "./layout/Projects.vue";
 </script>
 
 <template>
@@ -11,5 +12,6 @@ import Banner from "./utils/Banner.vue";
     <Hero />
     <About />
     <Banner />
+    <Projects />
   </div>
 </template>

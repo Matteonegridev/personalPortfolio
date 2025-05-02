@@ -5,7 +5,7 @@ const animateTitle = {
   x: ["100%", "-100%"],
   transition: {
     repeat: Infinity,
-    duration: 15,
+    duration: 20,
     ease: "linear",
   },
 };
@@ -14,7 +14,7 @@ const animateTitleBelow = {
   x: ["-100%", "100%"],
   transition: {
     repeat: Infinity,
-    duration: 15,
+    duration: 20,
     ease: "linear",
   },
 };
@@ -22,7 +22,7 @@ const animateTitleBelow = {
 
 <template>
   <section
-    class="absolute right-0 left-0 -z-10 mt-30 mb-10 w-screen max-w-none"
+    class="absolute right-0 left-0 -z-10 my-10 mt-30 w-screen max-w-none"
   >
     <div
       class="bg-secondary -skew-y-[8deg] overflow-hidden px-4 py-3 lg:-skew-y-[6deg]"

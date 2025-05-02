@@ -34,7 +34,7 @@ const container = {
 
 const navbar = {
   hidden: {
-    x: "-100%",
+    x: "-110%",
     transition: {
       easeOut,
       duration: 0.2,
@@ -62,10 +62,10 @@ watchEffect(() => {
 </script>
 
 <template>
-  <header class="fixed top-0 right-0 left-0 lg:px-10">
+  <header class="fixed top-0 right-0 left-0">
     <nav
       :class="
-        clsx('relative flex items-center justify-between p-8', {
+        clsx('relative flex items-center justify-between px-10 py-6 lg:px-16', {
           'backdrop-blur-sm transition duration-350 ease-in':
             isWindowScrolling && !isMenuOpen,
         })
