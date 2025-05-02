@@ -156,6 +156,10 @@
   font-family: var(--font-body);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-dark);
   background-image:
