@@ -1,5 +1,6 @@
 <script setup>
 import "vue3-carousel/carousel.css";
+import Card from "../components/Card.vue";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 
 const images = Array.from({ length: 10 }, (_, index) => ({
@@ -34,7 +35,7 @@ const config = {
       }"
     >
       <Slide v-for="image in images" :key="image.id">
-        <img :src="image.url" alt="image" />
+        <Card :image="image.url" />
       </Slide>
 
       <template #addons>
