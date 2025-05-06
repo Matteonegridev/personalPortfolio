@@ -155,6 +155,9 @@
   line-height: var(--leading-secondary-mobile);
   font-family: var(--font-body);
 }
+@utility grid-area-1-1 {
+  grid-area: 1/1;
+}
 
 html {
   scroll-behavior: smooth;
