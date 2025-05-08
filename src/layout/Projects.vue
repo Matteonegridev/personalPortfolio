@@ -9,27 +9,35 @@ const images = Array.from({ length: 10 }, (_, index) => ({
 }));
 
 const config = {
-  height: 400,
   itemsToShow: 1.5,
-  gap: 40,
-  autoplay: 2000,
+  gap: 10,
+  autoplay: 5000,
   wrapAround: true,
   pauseAutoplayOnHover: true,
 };
 </script>
 
 <template>
-  <section class="mt-130">
+  <section class="mt-100">
+    <div>
+      <h2 class="text-secondary title-mobile-h2 lg:title-h2 lg:mb-14">
+        Projects
+      </h2>
+    </div>
     <Carousel
       v-bind="config"
       breakpoint-mode="viewport"
       :breakpoints="{
-        700: {
-          itemsToShow: 2.5,
+        300: {
+          itemsToShow: 1,
+          snapAlign: 'center',
+        },
+        500: {
+          itemsToShow: 1.5,
           snapAlign: 'center',
         },
         1000: {
-          itemsToShow: 3.5,
+          itemsToShow: 2.5,
           snapAlign: 'center',
         },
       }"

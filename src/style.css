@@ -155,8 +155,9 @@
   line-height: var(--leading-secondary-mobile);
   font-family: var(--font-body);
 }
-@utility grid-area-1-1 {
-  grid-area: 1/1;
+@utility grid-area {
+  grid-column: 1/2;
+  grid-row: 1/2;
 }
 
 html {
