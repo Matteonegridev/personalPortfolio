@@ -1,7 +1,11 @@
 <script setup>
 import "vue3-carousel/carousel.css";
 import Card from "../components/Card.vue";
-import { Carousel, Slide, Navigation } from "vue3-carousel";
+import {
+  Carousel,
+  Slide,
+  Navigation as CarouselNavigation,
+} from "vue3-carousel";
 
 const images = Array.from({ length: 10 }, (_, index) => ({
   id: index + 1,
@@ -9,16 +13,15 @@ const images = Array.from({ length: 10 }, (_, index) => ({
 }));
 
 const config = {
-  itemsToShow: 1.5,
-  gap: 10,
   autoplay: 5000,
   wrapAround: true,
   pauseAutoplayOnHover: true,
+  gap: 20,
 };
 </script>
 
 <template>
-  <section class="mt-100">
+  <section class="mt-100 mb-11">
     <div>
       <h2 class="text-secondary title-mobile-h2 lg:title-h2 lg:mb-14">
         Projects
@@ -47,7 +50,14 @@ const config = {
       </Slide>
 
       <template #addons>
-        <Navigation />
+        <CarouselNavigation>
+          <template #prev>
+            <span class="text-primary">←</span>
+          </template>
+          <template #next>
+            <span class="text-primary">→</span>
+          </template>
+        </CarouselNavigation>
       </template>
     </Carousel>
   </section>
