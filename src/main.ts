@@ -8,7 +8,18 @@ import { BiGithub } from "oh-vue-icons/icons";
 import { MdLanguage } from "oh-vue-icons/icons";
 import { ViFileTypeReactjs } from "oh-vue-icons/icons";
 import { ViFileTypeTailwind } from "oh-vue-icons/icons";
-addIcons(BiGithub, MdLanguage, ViFileTypeReactjs, ViFileTypeTailwind);
+import { ViFileTypeNode } from "oh-vue-icons/icons";
+import { ViFileTypeMongo } from "oh-vue-icons/icons";
+import { SiExpress } from "oh-vue-icons/icons";
+addIcons(
+  BiGithub,
+  MdLanguage,
+  ViFileTypeReactjs,
+  ViFileTypeTailwind,
+  ViFileTypeNode,
+  ViFileTypeMongo,
+  SiExpress,
+);
 
 const app = createApp(App);
 

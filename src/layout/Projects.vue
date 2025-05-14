@@ -9,27 +9,28 @@ import {
 } from "vue3-carousel";
 
 const config = {
-  height: 600,
-  autoplay: 5000,
+  autoplay: 4000,
   wrapAround: true,
   pauseAutoplayOnHover: true,
-  gap: 20,
 };
 </script>
 
 <template>
-  <section class="mt-100 mb-11">
+  <section class="-mx-[var(--margin-mobile)] mt-100 mb-11">
     <div>
-      <h2 class="text-secondary title-mobile-h2 lg:title-h2 lg:mb-14">
+      <h2
+        class="text-secondary title-mobile-h2 lg:title-h2 mx-[var(--margin-mobile)] mb-8"
+      >
         Projects
       </h2>
     </div>
+
     <Carousel
       v-bind="config"
       breakpoint-mode="viewport"
       :breakpoints="{
         300: {
-          itemsToShow: 1,
+          itemsToShow: 1.45,
           snapAlign: 'center',
         },
         500: {
@@ -42,7 +43,11 @@ const config = {
         },
       }"
     >
-      <Slide v-for="value in projects" :key="value.name" class="">
+      <Slide
+        v-for="value in projects"
+        :key="value.name"
+        class="border-dark-variant bg-dark border px-2 py-4"
+      >
         <Card
           :title="value.name"
           :image="value.image"
@@ -56,13 +61,57 @@ const config = {
       <template #addons>
         <CarouselNavigation>
           <template #prev>
-            <span class="text-primary">←</span>
+            <span class="font-black text-white lg:text-6xl">←</span>
           </template>
           <template #next>
-            <span class="text-primary">→</span>
+            <span class="font-black text-white lg:text-6xl">→</span>
           </template>
         </CarouselNavigation>
       </template>
     </Carousel>
   </section>
 </template>
+
+<style lang="css">
+:root {
+  --carousel-transition: 300ms;
+  --carousel-opacity-inactive: 0.7;
+  --carousel-opacity-active: 1;
+  --carousel-opacity-near: 0.5;
+}
+
+.carousel__viewport {
+  perspective: 2000px;
+}
+
+.carousel__track {
+  transform-style: preserve-3d;
+}
+
+.carousel__slide--sliding {
+  transition:
+    opacity var(--carousel-transition),
+    transform var(--carousel-transition);
+}
+
+.carousel.is-dragging .carousel__slide {
+  transition:
+    opacity var(--carousel-transition),
+    transform var(--carousel-transition);
+}
+
+.carousel__slide--prev {
+  opacity: var(--carousel-opacity-near);
+  transform: rotateY(-15deg) scale(0.9);
+}
+
+.carousel__slide--active {
+  opacity: var(--carousel-opacity-active);
+  transform: rotateY(0) scale(1);
+}
+
+.carousel__slide--next {
+  opacity: var(--carousel-opacity-near);
+  transform: rotateY(15deg) scale(0.9);
+}
+</style>
