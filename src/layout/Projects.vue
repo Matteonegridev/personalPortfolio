@@ -1,18 +1,15 @@
 <script setup>
 import "vue3-carousel/carousel.css";
 import Card from "../components/Card.vue";
+import { projects } from "../utils/data";
 import {
   Carousel,
   Slide,
   Navigation as CarouselNavigation,
 } from "vue3-carousel";
 
-const images = Array.from({ length: 10 }, (_, index) => ({
-  id: index + 1,
-  url: `https://unsplash.it/800/600`,
-}));
-
 const config = {
+  height: 600,
   autoplay: 5000,
   wrapAround: true,
   pauseAutoplayOnHover: true,
@@ -45,8 +42,15 @@ const config = {
         },
       }"
     >
-      <Slide v-for="image in images" :key="image.id">
-        <Card :image="image.url" />
+      <Slide v-for="value in projects" :key="value.name" class="">
+        <Card
+          :title="value.name"
+          :image="value.image"
+          :description="value.description"
+          :tech="value.tech"
+          :github="value.github"
+          :web="value.website"
+        />
       </Slide>
 
       <template #addons>
