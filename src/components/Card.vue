@@ -13,7 +13,7 @@ const props = defineProps<{
   <div @click.stop>
     <div class="space-y-2 p-2">
       <h2
-        class="title-mobile-h4 lg:title-h3 from-primaryDark-variant via-primaryLight-variant1 to-primary inline-block bg-gradient-to-r bg-clip-text text-transparent"
+        class="title-mobile-h4 lg:title-h5 from-primaryDark-variant via-primaryLight-variant1 to-primary inline-block bg-gradient-to-r bg-clip-text text-transparent"
       >
         {{ props.title }}
       </h2>

@@ -19,7 +19,7 @@ const config = {
   <section class="-mx-[var(--margin-mobile)] mt-120 mb-11" id="Projects">
     <div>
       <h2
-        class="text-secondary title-mobile-h2 lg:title-h2 mx-[var(--margin-mobile)] mb-8"
+        class="text-secondary title-mobile-h4 lg:title-h3 mx-[var(--margin-mobile)] mb-14"
       >
         Projects
       </h2>

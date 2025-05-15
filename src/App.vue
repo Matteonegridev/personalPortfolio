@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar.vue";
 import About from "./layout/About.vue";
 import Banner from "./utils/Banner.vue";
 import Projects from "./layout/Projects.vue";
+import Contact from "./layout/Contact.vue";
 </script>
 
 <template>
@@ -13,5 +14,6 @@ import Projects from "./layout/Projects.vue";
     <About />
     <Banner />
     <Projects />
+    <Contact />
   </div>
 </template>

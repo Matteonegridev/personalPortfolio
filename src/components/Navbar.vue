@@ -6,7 +6,7 @@ import Button from "./Button.vue";
 import { easeIn, motion, useTime, useTransform } from "motion-v";
 import clsx from "clsx";
 
-const navLinks = ["About Me", "Projects", "Contact Me"];
+const navLinks = ["About", "Projects", "Collaboration"];
 
 const time = useTime();
 const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });

@@ -13,6 +13,7 @@ import { ViFileTypeMongo } from "oh-vue-icons/icons";
 import { SiExpress } from "oh-vue-icons/icons";
 import { ViFileTypeSass } from "oh-vue-icons/icons";
 import { ViFileTypeTypescriptOfficial } from "oh-vue-icons/icons";
+import { RiShareBoxFill } from "oh-vue-icons/icons";
 
 addIcons(
   BiGithub,
@@ -24,6 +25,7 @@ addIcons(
   SiExpress,
   ViFileTypeSass,
   ViFileTypeTypescriptOfficial,
+  RiShareBoxFill,
 );
 
 const app = createApp(App);

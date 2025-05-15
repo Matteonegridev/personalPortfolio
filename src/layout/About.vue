@@ -3,10 +3,10 @@ import Button from "../components/Button.vue";
 </script>
 
 <template>
-  <section class="mb-10 lg:grid lg:h-[70dvh] lg:grid-cols-2" id="About Me">
+  <section class="mb-10 lg:grid lg:h-[70dvh] lg:grid-cols-2" id="About">
     <div class="lg:place-content-start">
-      <h2 class="text-secondary title-mobile-h2 lg:title-h2 mb-14">About Me</h2>
-      <h3 class="title-mobile-h3 lg:title-h3 mb-2 text-white">
+      <h2 class="text-secondary title-mobile-h4 lg:title-h3 mb-14">About</h2>
+      <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, dolorem.
       </h3>
       <Button
