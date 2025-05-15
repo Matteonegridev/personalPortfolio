@@ -83,7 +83,7 @@ const lineMotion = {
 
 <template>
   <header
-    class="bg-dark/70 fixed top-0 right-0 left-0 z-50 flex items-center justify-around px-10 py-5 backdrop-blur-lg"
+    class="bg-dark/40 fixed top-0 right-0 left-0 z-50 flex items-center justify-around px-10 py-5 backdrop-blur-lg"
   >
     <div><Logo /></div>
 
@@ -92,10 +92,14 @@ const lineMotion = {
       class="body-font-desktop flex items-center gap-10 font-bold max-lg:hidden"
     >
       <li
-        class="hover:text-secondary cursor-pointer text-white"
+        class="group relative cursor-pointer text-white transition-all duration-300 ease-in-out"
         v-for="link of navLinks"
+        :key="link"
       >
         <a :href="'#' + link"> {{ link }}</a>
+        <span
+          class="bg-secondary pointer-events-none absolute top-1/2 left-0 h-[4px] w-0 transition-all duration-500 ease-out group-hover:w-full"
+        ></span>
       </li>
     </ul>
     <div class="relative ml-auto max-lg:hidden">

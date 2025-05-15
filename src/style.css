@@ -15,6 +15,22 @@
   src: url("./public/assets/fonts/BasierSquare-SemiBold.ttf") format("truetype");
   font-display: swap;
 }
+@font-face {
+  font-family: "Base Neue Bold";
+  src: url("./public/assets/fonts/BaseNeueTrial-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Base Neue Semibold";
+  src: url("./public/assets/fonts/BaseNeueTrial-SemiBold.ttf")
+    format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Base Neue Regular";
+  src: url("./public/assets/fonts/BaseNeueTrial-Regular.ttf") format("truetype");
+  font-display: swap;
+}
 
 @theme {
   --color-dark-variant: #2b2b2b;

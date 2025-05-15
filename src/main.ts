@@ -11,6 +11,9 @@ import { ViFileTypeTailwind } from "oh-vue-icons/icons";
 import { ViFileTypeNode } from "oh-vue-icons/icons";
 import { ViFileTypeMongo } from "oh-vue-icons/icons";
 import { SiExpress } from "oh-vue-icons/icons";
+import { ViFileTypeSass } from "oh-vue-icons/icons";
+import { ViFileTypeTypescriptOfficial } from "oh-vue-icons/icons";
+
 addIcons(
   BiGithub,
   MdLanguage,
@@ -19,6 +22,8 @@ addIcons(
   ViFileTypeNode,
   ViFileTypeMongo,
   SiExpress,
+  ViFileTypeSass,
+  ViFileTypeTypescriptOfficial,
 );
 
 const app = createApp(App);

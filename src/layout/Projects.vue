@@ -16,7 +16,7 @@ const config = {
 </script>
 
 <template>
-  <section class="-mx-[var(--margin-mobile)] mt-100 mb-11">
+  <section class="-mx-[var(--margin-mobile)] mt-120 mb-11" id="Projects">
     <div>
       <h2
         class="text-secondary title-mobile-h2 lg:title-h2 mx-[var(--margin-mobile)] mb-8"
@@ -24,51 +24,58 @@ const config = {
         Projects
       </h2>
     </div>
-
-    <Carousel
-      v-bind="config"
-      breakpoint-mode="viewport"
-      :breakpoints="{
-        300: {
-          itemsToShow: 1.45,
-          snapAlign: 'center',
-        },
-        500: {
-          itemsToShow: 1.5,
-          snapAlign: 'center',
-        },
-        1000: {
-          itemsToShow: 2.5,
-          snapAlign: 'center',
-        },
-      }"
-    >
-      <Slide
-        v-for="value in projects"
-        :key="value.name"
-        class="border-dark-variant bg-dark border px-2 py-4"
+    <div class="relative">
+      <div
+        class="from-dark pointer-events-none absolute top-0 left-0 z-10 h-full w-6 bg-gradient-to-r to-transparent"
+      />
+      <div
+        class="from-dark pointer-events-none absolute top-0 right-0 z-10 h-full w-6 bg-gradient-to-l to-transparent"
+      />
+      <Carousel
+        v-bind="config"
+        breakpoint-mode="viewport"
+        :breakpoints="{
+          300: {
+            itemsToShow: 1.45,
+            snapAlign: 'center',
+          },
+          500: {
+            itemsToShow: 1.5,
+            snapAlign: 'center',
+          },
+          1000: {
+            itemsToShow: 2.5,
+            snapAlign: 'center',
+          },
+        }"
       >
-        <Card
-          :title="value.name"
-          :image="value.image"
-          :description="value.description"
-          :tech="value.tech"
-          :github="value.github"
-          :web="value.website"
-        />
-      </Slide>
+        <Slide
+          v-for="value in projects"
+          :key="value.name"
+          class="border-dark-variant bg-dark border px-2 py-4"
+        >
+          <Card
+            :title="value.name"
+            :image="value.image"
+            :description="value.description"
+            :tech="value.tech"
+            :github="value.github"
+            :web="value.website"
+          />
+        </Slide>
 
-      <template #addons>
-        <CarouselNavigation>
-          <template #prev>
-            <span class="font-black text-white lg:text-6xl">←</span>
-          </template>
-          <template #next>
-            <span class="font-black text-white lg:text-6xl">→</span>
-          </template>
-        </CarouselNavigation>
-      </template>
-    </Carousel>
+        <template #addons>
+          <CarouselNavigation>
+            <template #prev>
+              <span class="font-black text-white lg:text-6xl">←</span>
+            </template>
+            <template #next>
+              <span class="font-black text-white lg:text-6xl">→</span>
+            </template>
+          </CarouselNavigation>
+        </template>
+      </Carousel>
+    </div>
   </section>
 </template>
 

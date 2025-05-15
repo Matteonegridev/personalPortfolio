@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from "../components/Button.vue";
+import HeroBackground from "../utils/HeroBackground.vue";
 import { motion, useTime, useTransform } from "motion-v";
 
 const time = useTime();
@@ -11,6 +12,7 @@ const rotateBg = useTransform(rotate, (r) => {
 
 <template>
   <section class="h-[100dvh]">
+    <HeroBackground />
     <div class="flex h-full flex-col justify-center">
       <h1 class="title-h1 mb-2 text-white lg:mb-6 lg:w-[8ch] lg:text-9xl">
         Matteo Negri
