@@ -78,7 +78,7 @@ const titleVariants = {
       </div>
 
       <!-- others block -->
-      <div class="flex gap-1">
+      <div class="flex items-center gap-1">
         <span>Others</span>:
         <div class="flex items-center gap-1">
           <v-icon name="ri-share-box-fill" class="text-secondary" />

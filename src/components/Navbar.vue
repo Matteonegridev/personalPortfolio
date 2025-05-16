@@ -3,7 +3,7 @@ import { ref } from "vue";
 import Logo from "../utils/LogoColor.vue";
 
 import Button from "./Button.vue";
-import { easeIn, motion, useTime, useTransform } from "motion-v";
+import { easeIn, easeOut, motion, useTime, useTransform } from "motion-v";
 import clsx from "clsx";
 
 const navLinks = ["About", "Projects", "Collaboration"];
@@ -83,6 +83,70 @@ const lineMotion = {
     },
   },
 };
+
+// burger menu effect:
+const upLine = {
+  closed: {
+    opacity: 1,
+    rotate: 0,
+    y: 0,
+    transition: {
+      duration: 0.2,
+      easeOut,
+    },
+  },
+  open: {
+    rotate: [0, 0, 45],
+    y: [0, 8, 8],
+    transition: {
+      duration: 0.6,
+      times: [0, 0.4, 1],
+      easing: ["ease-in", "ease-out", "ease-in-out"],
+    },
+  },
+};
+
+const middleLine = {
+  closed: {
+    opacity: 1,
+    scaleX: 1.2,
+    transition: {
+      duration: 0.5,
+      delay: 0.1,
+      easing: "ease-in-out",
+    },
+  },
+  open: {
+    opacity: [1, 0],
+    scaleX: [1, 0],
+    transition: {
+      duration: 0.2,
+      delay: 0.2,
+      easing: "ease-in-out",
+    },
+  },
+};
+
+const lowLine = {
+  closed: {
+    opacity: 1,
+    rotate: 0,
+    y: 0,
+    transition: {
+      duration: 0.2,
+      easeOut,
+    },
+  },
+  open: {
+    y: [0, -8, -8],
+    rotate: [0, 0, -45],
+    transition: {
+      duration: 0.6,
+      times: [0, 0.4, 1],
+      easing: ["ease-in", "ease-out", "ease-in-out"],
+    },
+  },
+};
 </script>
 
 <template>
@@ -119,15 +183,21 @@ const lineMotion = {
         :style="{ background: rotateBg, filter: 'blur(10px)' }"
       />
     </div>
-    <button
-      :class="clsx('z-[999] flex flex-col gap-1 lg:hidden')"
+    <motion.button
+      :class="clsx('z-[999] flex cursor-pointer flex-col gap-1 lg:hidden')"
       @click="toggleMenu"
       aria-label="Toggle menu"
+      :variants="{ open: {}, closed: {} }"
+      initial="closed"
+      :animate="isMenuOpen ? 'open' : 'closed'"
     >
-      <span class="h-1 w-8 bg-white"></span>
-      <span class="h-1 w-8 bg-white"></span>
-      <span class="h-1 w-8 bg-white"></span>
-    </button>
+      <motion.span :variants="upLine" class="h-1 w-8 bg-white"></motion.span>
+      <motion.span
+        :variants="middleLine"
+        class="bg-secondary h-1 w-8 origin-center"
+      ></motion.span>
+      <motion.span :variants="lowLine" class="h-1 w-8 bg-white"></motion.span>
+    </motion.button>
     <motion.nav
       :variants="navbar"
       :initial="false"

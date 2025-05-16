@@ -73,10 +73,10 @@ const subtitleVariant = {
         :variants="parentTitle"
         while-in-view="open"
         initial="closed"
-        class="title-h1 mb-2 text-white lg:mb-6 lg:w-[8ch] lg:text-9xl"
+        class="title-h1 mb-2 text-white md:text-8xl lg:mb-6 lg:w-[8ch] lg:text-9xl"
       >
         <motion.span
-          class="inline-block"
+          class="block"
           :variants="childTitle"
           v-for="name in titleName"
           :key="name"

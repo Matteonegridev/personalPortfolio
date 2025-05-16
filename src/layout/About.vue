@@ -42,7 +42,8 @@ const childrenEffect = {
   <section class="mb-8 lg:grid lg:h-[135dvh] lg:grid-cols-2" id="About">
     <div class="lg:place-content-start">
       <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, dolorem.
+        Developer. Designer. Italian. I build sleek digital things and eat pizza
+        like it's a side quest.
       </h3>
       <Button
         variant="primary"
