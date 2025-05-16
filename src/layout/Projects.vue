@@ -16,7 +16,10 @@ const config = {
 </script>
 
 <template>
-  <section class="-mx-[var(--margin-mobile)] mt-90 mb-11" id="Projects">
+  <section
+    class="-mx-[var(--margin-mobile)] mt-90 mb-11 lg:mt-100"
+    id="Projects"
+  >
     <div>
       <h2
         class="text-secondary title-mobile-h4 lg:title-h3 mx-[var(--margin-mobile)] mb-14"
@@ -67,10 +70,18 @@ const config = {
         <template #addons>
           <CarouselNavigation>
             <template #prev>
-              <span class="font-black text-white lg:text-6xl">←</span>
+              <span
+                class="absolute top-1/2 left-2 z-30 -translate-y-1/2 font-black text-white lg:text-6xl"
+              >
+                ←
+              </span>
             </template>
             <template #next>
-              <span class="font-black text-white lg:text-6xl">→</span>
+              <span
+                class="absolute top-1/2 right-2 z-30 -translate-y-1/2 font-black text-white lg:text-6xl"
+              >
+                →
+              </span>
             </template>
           </CarouselNavigation>
         </template>
