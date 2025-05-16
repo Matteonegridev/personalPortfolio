@@ -20,6 +20,10 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
+const navTo = () => {
+  window.open("mailto:matteonegridev@gmail.com");
+};
+
 const variantsUl = {
   open: {
     transition: {
@@ -102,10 +106,12 @@ const lineMotion = {
         ></span>
       </li>
     </ul>
+
     <div class="relative ml-auto max-lg:hidden">
       <Button
         variant="secondary"
         label="Get In Touch"
+        @click="navTo"
         class="hover:text-secondary bg-dark hover:border-secondary button-effect relative z-10 w-[12.5ch] cursor-pointer transition-all duration-250 ease-in hover:pr-10 hover:pl-5"
       />
       <motion.div
