@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { easeOut, motion } from "motion-v";
 
-const titleWords = ["Let's", "talk", "to", "collaborate."];
+const titleWords = ["Let’s", "connect", "and", "collaborate!"];
 
 const containerVariants = {
   closed: {},
@@ -43,7 +43,7 @@ const titleVariants = {
         :variants="containerVariants"
         initial="closed"
         while-in-view="open"
-        class="title-h3 mb-8 w-full text-left text-balance text-white lg:text-center lg:lg:text-9xl"
+        class="title-mobile-h2 mb-10 w-full text-left text-balance text-white lg:text-center lg:text-9xl"
       >
         <motion.span
           v-for="(word, i) in titleWords"

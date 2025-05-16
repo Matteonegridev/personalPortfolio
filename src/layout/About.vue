@@ -31,7 +31,7 @@ const childrenEffect = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.68, -0.55, 0.27, 1.55],
+      ease: [0.4, 0, 0.2, 1],
     },
   },
 };
