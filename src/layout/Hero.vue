@@ -68,7 +68,7 @@ const subtitleVariant = {
 <template>
   <section class="h-[100dvh]">
     <HeroBackground />
-    <div class="flex h-full flex-col justify-center">
+    <div class="flex h-full flex-col justify-center max-md:mt-5">
       <motion.h1
         :variants="parentTitle"
         while-in-view="open"
@@ -97,7 +97,7 @@ const subtitleVariant = {
         <Button
           variant="secondary"
           label="Get In Touch"
-          class="bg-dark relative z-10 border-2"
+          class="bg-dark active:text-secondary active:border-secondary focus-visible:outline-secondary relative z-10 w-[12.5ch] cursor-pointer px-4 py-3 transition-all duration-250 ease-in-out focus-visible:outline active:scale-95"
           @click="navTo"
         />
         <motion.div

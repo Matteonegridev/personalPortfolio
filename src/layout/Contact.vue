@@ -72,7 +72,7 @@ const titleVariants = {
           href="mailto:matteonegridev@gmail.com"
           class="group relative"
           >matteonegridev@gmail.com<span
-            class="bg-secondary absolute top-1/2 left-0 h-[3px] w-full origin-left scale-x-0 transform transition-transform duration-300 group-hover:scale-x-100"
+            class="bg-secondary absolute top-1/2 left-0 h-[3px] w-full origin-left scale-x-0 transform transition-transform duration-300 group-hover:scale-x-100 group-active:scale-x-100"
           ></span
         ></a>
       </div>
@@ -90,7 +90,7 @@ const titleVariants = {
           >
             LinkedIn
             <span
-              class="bg-secondary absolute top-1/2 left-0 h-[3px] w-full origin-left scale-x-0 transform transition-transform duration-300 group-hover:scale-x-100"
+              class="bg-secondary absolute top-1/2 left-0 h-[3px] w-full origin-left scale-x-0 transform transition-transform duration-300 group-hover:scale-x-100 group-active:scale-x-100"
             ></span>
           </a>
         </div>
@@ -105,7 +105,7 @@ const titleVariants = {
           >
             GitHub
             <span
-              class="bg-secondary absolute top-1/2 left-0 h-[3px] w-full origin-left scale-x-0 transform transition-transform duration-300 group-hover:scale-x-100"
+              class="bg-secondary absolute top-1/2 left-0 h-[3px] w-full origin-left scale-x-0 transform transition-transform duration-300 group-hover:scale-x-100 group-active:scale-x-100"
             ></span>
           </a>
         </div>
