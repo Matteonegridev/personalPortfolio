@@ -39,8 +39,11 @@ const childrenEffect = {
 
 <template>
   <h2 class="text-secondary title-mobile-h4 lg:title-h3 mb-14">About</h2>
-  <section class="mb-8 lg:grid lg:h-[135dvh] lg:grid-cols-2" id="About">
-    <div class="lg:place-content-start">
+  <section
+    class="mb-12 grid grid-cols-1 md:gap-2 lg:h-[135dvh] lg:grid-cols-2 lg:gap-16"
+    id="About"
+  >
+    <div class="flex flex-col items-start justify-start">
       <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
         Developer. Designer. Italian. I build sleek digital things and eat pizza
         like it's a side quest.
@@ -52,6 +55,7 @@ const childrenEffect = {
         @click="navTo"
       />
     </div>
+
     <motion.div
       :variants="parentEffect"
       initial="closed"

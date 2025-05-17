@@ -1,8 +1,8 @@
-import mockup1 from "../public/assets/img/mockup-p1.png";
-import mockupGreenprints from "../public/assets/img/mockup-greenprints.png";
-import mockupForm from "../public/assets/img/mockup-form.png";
-import mockupMeisapp from "../public/assets/img/mockup-meisapp.png";
-import mockupEquityease from "../public/assets/img/mockup-equit.png";
+import mockup1 from "/assets/img/mockup-p1.png";
+import mockupGreenprints from "/assets/img/mockup-greenprints.png";
+import mockupForm from "/assets/img/mockup-form.png";
+import mockupMeisapp from "/assets/img/mockup-meisapp.png";
+import mockupEquityease from "/assets/img/mockup-equit.png";
 
 type Project = {
   image: string;

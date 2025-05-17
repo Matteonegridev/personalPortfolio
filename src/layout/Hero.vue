@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from "../components/Button.vue";
-import HeroBackground from "../utils/HeroBackground.vue";
+import HeroBackground from "../animations/HeroBackground.vue";
 import { easeOut, motion, useTime, useTransform } from "motion-v";
 
 // Button Effect:
