@@ -90,7 +90,8 @@ const subtitleVariant = {
         while-in-view="open"
         class="title-mobile-h3 lg:body-font-desktop mb-8 w-[13ch] text-pretty text-white lg:w-full"
       >
-        Web Developer UX Designer & Videoscribe Specialist.
+        Web Developer UX Designer
+        <span class="text-secondary">&</span> Videoscribe Specialist.
       </motion.p>
 
       <div class="relative self-start lg:hidden">

@@ -37,15 +37,32 @@ onMounted(() => {
     20, // far
   );
 
+  // Add Orthographic Camera:
+  // const ratio = clientWidth / clientHeight;
+  // const camera = new THREE.OrthographicCamera(
+  //   -1 * ratio, // left
+  //   1 * ratio, // right
+  //   1, // top
+  //   -1, //below
+  //   0.3, // near
+  //   100, //far
+  // );
+
   camera.position.z = 3;
 
   // Initialize the render:
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas.value,
     alpha: true,
+    // Solution 1 to antialias:
+    antialias: true,
   });
   renderer.setSize(clientWidth, clientHeight);
+  // Solution 2 to antialias based on the device pixelRatio:
+  const maxPixel = Math.min(window.devicePixelRatio, 2);
+  renderer.setPixelRatio(maxPixel);
 
+  // Orbit controls allow to move the object:
   const controls = new OrbitControls(camera, canvas.value);
   controls.autoRotate = true;
   controls.enableDamping = true;
@@ -59,6 +76,15 @@ onMounted(() => {
   };
 
   animate();
+
+  // Resize:
+  const resize = () => {
+    camera.aspect = clientWidth / clientHeight;
+    camera.updateProjectionMatrix();
+    // call again setSize:
+    renderer.setSize(clientWidth, clientHeight);
+  };
+  window.addEventListener("resize", resize);
 });
 </script>
 
