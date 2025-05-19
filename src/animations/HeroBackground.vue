@@ -1,5 +1,7 @@
 <template>
-  <div class="absolute inset-0 z-0">
+  <div
+    class="absolute inset-0 z-0 -mx-[var(--margin-mobile)] lg:-mx-[var(--margin-desktop)]"
+  >
     <canvas ref="canvas" class="h-full w-full"></canvas>
   </div>
 </template>
@@ -17,7 +19,7 @@ let { x, y } = useMouse({ touch: false });
 
 onMounted(() => {
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0xffffff, 0.015);
+  scene.fog = new THREE.FogExp2(0x2b2b2b, 0.005);
 
   camera = new THREE.PerspectiveCamera(
     75,
@@ -62,7 +64,7 @@ onMounted(() => {
 
   const material = new THREE.PointsMaterial({
     color: 0xddfa39,
-    size: 2,
+    size: 2.5,
     map: sprite,
     transparent: true,
     alphaTest: 0.5,
@@ -87,9 +89,11 @@ onMounted(() => {
   }
 
   const moveParticles = () => {
+    // Normalizing mouse position from -1 to 1
     const targetX = (x.value / window.innerWidth - 0.5) * 2;
     const targetY = -(y.value / window.innerHeight - 0.5) * 2;
 
+    // Make the movement smooth:
     camera.position.x += (targetX * 100 - camera.position.x) * 0.005;
     camera.position.y += (targetY * 100 - camera.position.y) * 0.005;
     camera.lookAt(scene.position);

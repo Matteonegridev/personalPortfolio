@@ -66,7 +66,7 @@ const subtitleVariant = {
 </script>
 
 <template>
-  <section class="h-[100dvh]">
+  <section class="relative mb-6 h-[100dvh]">
     <HeroBackground />
     <div class="flex h-full flex-col justify-center max-md:mt-5">
       <motion.h1
@@ -107,5 +107,8 @@ const subtitleVariant = {
         />
       </div>
     </div>
+    <div
+      class="from-dark pointer-events-none absolute right-0 -bottom-1 left-0 -mx-[var(--margin-mobile)] h-40 bg-gradient-to-t from-2% to-transparent lg:-mx-[var(--margin-desktop)]"
+    ></div>
   </section>
 </template>

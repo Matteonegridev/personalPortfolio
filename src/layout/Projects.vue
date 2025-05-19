@@ -87,6 +87,15 @@ const config = {
         </template>
       </Carousel>
     </div>
+    <div>
+      <h2 class="text-white">check my work with videoscribe:</h2>
+      <a
+        class="text-white"
+        href="https://www.youtube.com/watch?v=PyF-FmQx328&list=PL5GQm0Jfon3rXQHZDaemDTMQ56RoMHo74"
+        target="_blank"
+        >qui</a
+      >
+    </div>
   </section>
 </template>
 
