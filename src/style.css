@@ -203,6 +203,7 @@ body {
   background-position:
     0 0,
     34px 34px;
+  overflow-x: hidden;
 }
 
 .button-effect {

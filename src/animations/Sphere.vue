@@ -24,6 +24,9 @@ onMounted(() => {
   const sphereMesh = new THREE.Mesh(geometry, material);
   scene.add(sphereMesh);
 
+  const axesHelper = new THREE.AxesHelper(2);
+  sphereMesh.add(axesHelper);
+
   // Adjust Light:
   const light = new THREE.DirectionalLight(0xfffff, 1);
   light.position.set(4.5, 12.5, 5.5);
@@ -49,6 +52,9 @@ onMounted(() => {
   // );
 
   camera.position.z = 3;
+
+  // const axesHelper = new THREE.AxesHelper(2);
+  // scene.add(axesHelper);
 
   // Initialize the render:
   const renderer = new THREE.WebGLRenderer({

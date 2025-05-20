@@ -8,7 +8,7 @@ import Contact from "./layout/Contact.vue";
 </script>
 
 <template>
-  <div className="mx-[var(--margin-mobile)] lg:mx-[var(--margin-desktop)]">
+  <div class="mx-[var(--margin-mobile)] lg:mx-[var(--margin-desktop)]">
     <Navbar />
     <Hero />
     <About />

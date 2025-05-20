@@ -21,7 +21,7 @@ const animateTitleBelow = {
 </script>
 
 <template>
-  <section class="absolute right-0 left-0 -z-10 mt-30 w-screen max-w-none">
+  <section class="absolute right-0 left-0 -z-10 mt-30">
     <div
       class="bg-secondary -skew-y-[8deg] overflow-hidden px-4 py-3 lg:-skew-y-[6deg]"
     >

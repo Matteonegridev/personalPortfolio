@@ -108,7 +108,7 @@ const subtitleVariant = {
       </div>
     </div>
     <div
-      class="from-dark pointer-events-none absolute right-0 -bottom-1 left-0 -mx-[var(--margin-mobile)] h-40 bg-gradient-to-t from-2% to-transparent lg:-mx-[var(--margin-desktop)]"
+      class="from-dark pointer-events-none absolute right-0 -bottom-1 left-0 -mx-[var(--margin-mobile)] h-22 bg-gradient-to-t from-5% to-transparent lg:-mx-[var(--margin-desktop)]"
     ></div>
   </section>
 </template>
