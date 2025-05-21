@@ -1,8 +1,9 @@
-<script setup lang="ts">
+<script setup lang="jsx">
 import { onMounted, ref } from "vue";
 import * as THREE from "three";
 
-const container = ref<HTMLElement | null>(null);
+const container = ref(null);
+const canvas = ref(null);
 
 onMounted(() => {
   if (!container.value) return;
@@ -16,11 +17,14 @@ onMounted(() => {
     0.1,
     1000,
   );
-  camera.position.z = 4;
+  camera.position.z = 7;
 
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  const renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true,
+    canvas: canvas.value,
+  });
   renderer.setSize(clientWidth, clientHeight);
-  container.value.appendChild(renderer.domElement);
 
   // Glowing Wireframe Sphere
   const geometry = new THREE.SphereGeometry(1, 32, 32);
@@ -28,7 +32,7 @@ onMounted(() => {
     color: 0xddfa39,
     wireframe: true,
     transparent: true,
-    opacity: 0.7,
+    opacity: 0.2,
   });
   const sphere = new THREE.Mesh(geometry, material);
   scene.add(sphere);
@@ -76,5 +80,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="container" class="h-full w-full"></div>
+  <div ref="container" class="h-full w-full">
+    <canvas ref="canvas"></canvas>
+  </div>
 </template>
