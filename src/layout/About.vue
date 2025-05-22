@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Button from "../components/Button.vue";
-
 import Cube from "../animations/Cube.vue";
 import { motion } from "motion-v";
 const navTo = () => {
@@ -54,7 +53,7 @@ const childrenEffect = {
       <Button
         variant="primary"
         label="Follow My Linkedin!"
-        class="body-font-mobile hover:bg-dark hover: mt-2 cursor-pointer transition-all duration-400 ease-in-out hover:shadow-[0px_0px_10px_2px_rgba(221,_250,_57,_0.8)] hover:outline hover:outline-white max-lg:hidden"
+        class="body-font-mobile hover:bg-dark hover: mt-2 mb-10 cursor-pointer transition-all duration-400 ease-in-out hover:shadow-[0px_0px_10px_2px_rgba(221,_250,_57,_0.8)] hover:outline hover:outline-white max-lg:hidden"
         @click="navTo"
       />
       <Cube />
@@ -64,7 +63,7 @@ const childrenEffect = {
       :variants="parentEffect"
       initial="closed"
       while-in-view="open"
-      class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-pretty text-white max-sm:pt-4 lg:place-content-end"
+      class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-balance text-white max-sm:pt-4 lg:place-content-end"
     >
       <motion.p :variants="childrenEffect">
         I'm Matteo — a developer and UX designer based in Italy. From my humble

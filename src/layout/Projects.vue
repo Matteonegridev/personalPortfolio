@@ -17,12 +17,12 @@ const config = {
 
 <template>
   <section
-    class="-mx-[var(--margin-mobile)] mt-90 mb-11 lg:mt-100"
+    class="-mx-[var(--margin-mobile)] mt-90 mb-11 lg:-mx-[var(--margin-desktop)] lg:mt-100"
     id="Projects"
   >
-    <div>
+    <div class="">
       <h2
-        class="text-secondary title-mobile-h4 lg:title-h3 mx-[var(--margin-mobile)] mb-14"
+        class="text-secondary title-mobile-h4 lg:title-h3 mb-14 ml-[2.25rem] lg:ml-[3.5rem]"
       >
         Projects
       </h2>
@@ -71,14 +71,14 @@ const config = {
           <CarouselNavigation>
             <template #prev>
               <span
-                class="absolute top-1/2 left-2 z-30 -translate-y-1/2 font-black text-white lg:text-6xl"
+                class="absolute top-1/2 left-4 z-30 -translate-y-1/2 font-black text-white lg:text-6xl"
               >
                 ←
               </span>
             </template>
             <template #next>
               <span
-                class="absolute top-1/2 right-2 z-30 -translate-y-1/2 font-black text-white lg:text-6xl"
+                class="absolute top-1/2 right-4 z-30 -translate-y-1/2 font-black text-white lg:text-6xl"
               >
                 →
               </span>
@@ -86,15 +86,6 @@ const config = {
           </CarouselNavigation>
         </template>
       </Carousel>
-    </div>
-    <div>
-      <h2 class="text-white">check my work with videoscribe:</h2>
-      <a
-        class="text-white"
-        href="https://www.youtube.com/watch?v=PyF-FmQx328&list=PL5GQm0Jfon3rXQHZDaemDTMQ56RoMHo74"
-        target="_blank"
-        >qui</a
-      >
     </div>
   </section>
 </template>
