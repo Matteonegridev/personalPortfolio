@@ -153,12 +153,10 @@ const lowLine = {
   <header
     class="bg-dark/5 fixed top-0 right-0 left-0 z-50 flex items-center justify-around px-10 py-5 backdrop-blur-lg"
   >
-    <div><Logo /></div>
+    <div class="w-56"><Logo /></div>
 
     <!-- Desktop -->
-    <ul
-      class="body-font-desktop flex items-center gap-10 font-bold max-lg:hidden"
-    >
+    <ul class="body-font-desktop flex gap-10 font-bold max-lg:hidden">
       <li
         class="group relative cursor-pointer text-white transition-all duration-300 ease-in-out"
         v-for="link of navLinks"
@@ -183,6 +181,8 @@ const lowLine = {
         :style="{ background: rotateBg, filter: 'blur(10px)' }"
       />
     </div>
+
+    <!-- Mobile -->
     <motion.button
       :class="clsx('z-[999] flex cursor-pointer flex-col gap-1 lg:hidden')"
       @click="toggleMenu"
@@ -245,14 +245,10 @@ const lowLine = {
         :variants="ideaVar"
         class="mt-10 w-full"
       >
-        <p
-          class="note-details-mobile text-secondary mt-10 max-w-xs text-center"
-        >
+        <p class="note-details-mobile text-secondary mt-10 text-center">
           Tell me about your idea and let's turn it into code!
         </p>
       </motion.div>
     </motion.nav>
   </header>
-
-  <!-- Mobile -->
 </template>

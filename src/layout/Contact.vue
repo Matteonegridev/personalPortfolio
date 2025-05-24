@@ -34,7 +34,7 @@ const titleVariants = {
 </script>
 
 <template>
-  <section class="mt-33 mb-10 lg:grid" id="Collaboration">
+  <section class="mt-35 mb-10 lg:grid" id="Collaboration">
     <div class="lg:mb-16">
       <h2 class="text-secondary title-mobile-h4 lg:title-h3 mb-14">
         Collaboration

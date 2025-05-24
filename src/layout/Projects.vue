@@ -17,7 +17,7 @@ const config = {
 
 <template>
   <section
-    class="-mx-[var(--margin-mobile)] mt-90 mb-11 lg:-mx-[var(--margin-desktop)] lg:mt-100"
+    class="-mx-[var(--margin-mobile)] mt-35 mb-11 lg:-mx-[var(--margin-desktop)]"
     id="Projects"
   >
     <div class="">

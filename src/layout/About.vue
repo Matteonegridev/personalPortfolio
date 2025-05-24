@@ -39,7 +39,7 @@ const childrenEffect = {
 </script>
 
 <template>
-  <h2 class="text-secondary title-mobile-h4 lg:title-h3 mb-14" id="About">
+  <h2 class="text-secondary title-mobile-h4 lg:title-h3 mt-20 mb-14" id="About">
     About
   </h2>
   <section

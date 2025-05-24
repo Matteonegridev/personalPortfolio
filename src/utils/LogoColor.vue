@@ -4,7 +4,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 800 120"
-    class="h-auto w-full"
+    class="h-12 w-auto"
   >
     <g id="Layer_2">
       <path
