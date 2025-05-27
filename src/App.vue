@@ -5,6 +5,7 @@ import About from "./layout/About.vue";
 import Banner from "./utils/Banner.vue";
 import Projects from "./layout/Projects.vue";
 import Contact from "./layout/Contact.vue";
+import Footer from "./layout/Footer.vue";
 </script>
 
 <template>
@@ -15,5 +16,6 @@ import Contact from "./layout/Contact.vue";
     <Banner />
     <Projects />
     <Contact />
+    <Footer />
   </div>
 </template>

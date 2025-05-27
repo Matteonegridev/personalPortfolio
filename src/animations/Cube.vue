@@ -12,7 +12,8 @@ let renderer,
   camera,
   animationId,
   angle = 0,
-  angleTwo = 0;
+  angleTwo = 0,
+  angleThree = 0;
 
 onMounted(() => {
   // Scene
@@ -82,7 +83,7 @@ onMounted(() => {
   const pointLightOne = new THREE.PointLight(0x2a2cea, 50, 15, 2);
   // color, intensity, distance, decay
   pointLightOne.position.set(0.1, -3, 0.1);
-  const sphere = new THREE.SphereGeometry(0.1, 32, 10);
+  const sphere = new THREE.SphereGeometry(0.07, 32, 10);
   pointLightOne.add(
     new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x2a2cea })),
   );
@@ -92,7 +93,7 @@ onMounted(() => {
   const pointLightTwo = new THREE.PointLight(0xddfa39, 50, 15, 2);
   // color, intensity, distance, decay
   pointLightTwo.position.set(0.6, -3, 0.01);
-  const sphereTwo = new THREE.SphereGeometry(0.1, 32, 10);
+  const sphereTwo = new THREE.SphereGeometry(0.07, 32, 10);
   pointLightTwo.add(
     new THREE.Mesh(
       sphereTwo,
@@ -107,7 +108,7 @@ onMounted(() => {
   const light = new THREE.DirectionalLight(0xffffff, 0.6);
   light.position.set(5, 10, 7.5);
   light.castShadow = true;
-  light.shadow.mapSize.width = 2048; // Keep shadow quality decent but not crazy heavy
+  light.shadow.mapSize.width = 2048;
   light.shadow.mapSize.height = 2048;
   light.shadow.radius = 3;
   light.shadow.bias = -0.002;
@@ -135,6 +136,7 @@ onMounted(() => {
 
     angle -= 0.008; // Orbit speed (same)
     angleTwo += 0.008;
+    angleThree -= 0.008;
 
     const orbitRadiusX = 2.2;
     const orbitRadiusZ = 2;
@@ -142,17 +144,15 @@ onMounted(() => {
     const orbitHeight = 1.2;
 
     const orbitCenterX = (mesh.position.x + smallCube.position.x) / 2;
-
-    // point 1 anmation
+    // point 1 animation
     pointLightOne.position.x = orbitCenterX + orbitRadiusX * Math.cos(angle);
     pointLightOne.position.z = mesh.position.z + orbitRadiusZ * Math.sin(angle);
     pointLightOne.position.y =
       mesh.position.y + orbitHeight * Math.sin(angle * 2);
     pointLightOne.intensity = 100 + 100 * Math.sin(angle * 4);
 
-    const orbitRadiusZTwo = 2.3;
-
     // point 2 animation
+    const orbitRadiusZTwo = 2.3;
     pointLightTwo.position.x = orbitCenterX + orbitRadiusX * Math.cos(angleTwo);
     pointLightTwo.position.z =
       mesh.position.z + orbitRadiusZTwo * Math.sin(angleTwo);

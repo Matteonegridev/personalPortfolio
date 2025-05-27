@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { easeOut, motion } from "motion-v";
-import Random from "../animations/Sphere.vue";
+// import Random from "../animations/Sphere.vue";
 const titleWords = ["Let’s", "connect", "and", "collaborate!"];
 
 const containerVariants = {
@@ -111,6 +111,6 @@ const titleVariants = {
         </div>
       </div>
     </div>
-    <Random />
+    <!-- <Random /> -->
   </section>
 </template>
