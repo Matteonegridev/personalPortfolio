@@ -39,7 +39,7 @@ export const projects: Project = [
       "vi-file-type-node",
     ],
     github: "https://github.com/Matteonegridev/GreenPrints",
-    website: "greenprints.netlify.app",
+    website: "https://greenprints.netlify.app/",
   },
   {
     image: mockupForm,
@@ -51,7 +51,7 @@ export const projects: Project = [
       "vi-file-type-typescript-official",
     ],
     github: "https://github.com/Matteonegridev/MultiStep-form",
-    website: "gaminglorem.netlify.app",
+    website: "https://gaminglorem.netlify.app/",
   },
   {
     image: mockupMeisapp,
@@ -77,6 +77,6 @@ export const projects: Project = [
       "vi-file-type-typescript-official",
     ],
     github: "https://github.com/Matteonegridev/EquityEase",
-    website: "equityease.netlify.app",
+    website: "https://equityease.netlify.app",
   },
 ];

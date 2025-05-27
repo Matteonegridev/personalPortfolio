@@ -73,12 +73,6 @@ onMounted(() => {
   const pointCloud = new THREE.Points(particles, material);
   scene.add(pointCloud);
 
-  // Orbit Controls:
-  const controls = new OrbitControls(camera, canvas.value);
-  controls.autoRotate = true;
-  controls.enableDamping = true;
-  controls.enableZoom = false;
-
   // Handle resize
   window.addEventListener("resize", onWindowResize);
 
@@ -103,8 +97,8 @@ onMounted(() => {
   const animate = () => {
     animationId = requestAnimationFrame(animate);
     pointCloud.rotation.y += 0.001;
-    renderer.render(scene, camera);
     moveParticles();
+    renderer.render(scene, camera); // Only render once here
   };
 
   animate();
