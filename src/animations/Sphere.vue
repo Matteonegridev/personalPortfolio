@@ -70,13 +70,25 @@ onMounted(() => {
 
   // Orbit controls allow to move the object:
   const controls = new OrbitControls(camera, canvas.value);
-  controls.autoRotate = true;
+
   controls.enableDamping = true;
   controls.enableZoom = false;
+
+  // initialize clock:
+  const clock = new THREE.Clock();
+  let previousTime = 0;
 
   // Animate:
   const animate = () => {
     const animation = requestAnimationFrame(animate);
+    const currentTime = clock.getElapsedTime();
+    const delta = currentTime - previousTime;
+    previousTime = currentTime;
+
+    // console.log(delta);
+
+    sphereMesh.rotation.z += THREE.MathUtils.degToRad(1) * delta * 0.6;
+
     renderer.render(scene, camera);
     controls.update();
   };

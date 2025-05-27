@@ -28,6 +28,7 @@ const config = {
       </h2>
     </div>
     <div class="relative">
+      <!-- Gradient left and right: -->
       <div
         class="from-dark pointer-events-none absolute top-0 left-0 z-10 h-full w-6 bg-gradient-to-r to-transparent"
       />
