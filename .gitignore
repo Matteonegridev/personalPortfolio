@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+src/animations/Pizza.vue
+src/animations/Circle.vue
+src/animations/Sphere.vue
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
