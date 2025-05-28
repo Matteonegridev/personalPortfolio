@@ -119,7 +119,7 @@ onMounted(() => {
   light.shadow.camera.top = 6;
   light.shadow.camera.bottom = -6;
   scene.add(light);
-  scene.add(light);
+
   scene.add(new THREE.AmbientLight(0xffffff, 0.03));
 
   const clock = new THREE.Clock();
