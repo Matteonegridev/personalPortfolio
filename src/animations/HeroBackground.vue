@@ -33,7 +33,7 @@ onMounted(() => {
   renderer = new THREE.WebGLRenderer({
     canvas: canvas.value,
     alpha: true,
-    antialias: true,
+    // antialias: true,
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
