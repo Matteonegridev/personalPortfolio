@@ -141,6 +141,11 @@
   line-height: var(--leading-lg);
   font-family: var(--font-NeueRegular);
 }
+@utility title-hero-desktop {
+  font-size: var(--text-title-lg);
+  line-height: var(--leading-lg);
+  font-family: var(--font-NeueSemiBold);
+}
 @utility body-font-desktop {
   font-size: var(--text-title-md);
   line-height: var(--leading-md);

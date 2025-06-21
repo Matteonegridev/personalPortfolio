@@ -88,10 +88,10 @@ const subtitleVariant = {
         :variants="subtitleVariant"
         initial="closed"
         while-in-view="open"
-        class="title-mobile-h3 lg:body-font-desktop mb-8 w-[13ch] text-pretty text-white lg:w-full"
+        class="title-mobile-h3 lg:title-hero-desktop mb-8 w-[15ch] text-pretty text-white lg:w-full"
       >
-        Web Developer UX Designer
-        <span class="text-secondary">&</span> Videoscribe Specialist.
+        Web Developer
+        <span class="text-secondary">&</span> UX Designer.
       </motion.p>
 
       <div class="relative self-start lg:hidden">
