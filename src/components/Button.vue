@@ -12,8 +12,6 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   className: "",
 });
 
-const emit = defineEmits(["click"]);
-
 const variantClasses = {
   primary: "bg-primary text-white body-font-desktop font-bold",
   secondary: "border border-white text-white body-font-desktop font-bold",
@@ -23,7 +21,6 @@ const variantClasses = {
 <template>
   <button
     :class="clsx('px-6 py-4', variantClasses[props.variant], props.className)"
-    @click="emit('click')"
   >
     {{ label }}
     <slot />
