@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
 
-const tech = ["React.js", "Vue.js", " Astro.js", "Tailwind", "Node.js", "Scss"];
+const tech = ["React.js", "Vue.js", " Three.js", "Tailwind", "Node.js", "Scss"];
 const duplicatedTech = [...tech, ...tech];
 const skills = [
   "UI/UX Design",

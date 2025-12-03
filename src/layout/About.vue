@@ -42,13 +42,14 @@ const childrenEffect = {
   <h2 class="text-secondary title-mobile-h4 lg:title-h3 mt-20 mb-14" id="About">
     About
   </h2>
-  <section
-    class="mb-12 grid grid-cols-1 md:gap-2 lg:h-[135dvh] lg:grid-cols-2 lg:gap-16"
-  >
-    <div class="flex flex-col items-start justify-start">
+  <section class="mb-12 grid grid-cols-1 md:gap-2 lg:grid-cols-2 lg:gap-16">
+    <div class="">
       <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
-        Developer. Designer. Italian. I build sleek digital things and eat pizza
-        like it's a side quest.
+        Developer<span class="text-secondary">.</span> UX Designer<span
+          class="text-secondary"
+          >.</span
+        >
+        Shaping purposeful digital experiences with a touch of Italian craft.
       </h3>
       <Button
         variant="primary"
@@ -66,25 +67,29 @@ const childrenEffect = {
       class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-balance text-white max-sm:pt-4 lg:place-content-end"
     >
       <motion.p :variants="childrenEffect">
-        I'm Matteo — a developer and UX designer based in Italy. From my humble
-        beginnings with Microsoft Paint, I’ve mastered modern tools like React,
-        Vue, Tailwind, Astro, and Vite.
+        I'm Matteo, a developer and UX-focused designer based in London. I work
+        within modern front-end ecosystems, mainly
+        <span class="text-secondary text-bold italic"></span>React and Vue,
+        pairing them with workflows that keep design and development tightly
+        aligned.
       </motion.p>
       <motion.p :variants="childrenEffect" class="mt-6">
-        Over the years, I’ve explored a broad spectrum: graphic design, web
-        development, animation, UX thinking, and product work. Each project, big
-        or small, has sharpened my problem-solving skills and deepened my
-        user-centered design approach. This journey has made me adaptable and
-        pragmatic, balancing creativity with technical rigor.
+        Over the years, I’ve worked across graphic design, web development,
+        animation, UX thinking, and product design. Each project, big or small,
+        has strengthened my problem-solving skills and deepened my focus on user
+        experience. This range has made me adaptable and pragmatic, able to
+        balance creative exploration with technical rigor.
       </motion.p>
       <motion.p :variants="childrenEffect" class="mt-6">
-        I design minimal, bold digital experiences that are visually striking,
-        intuitive, and purposeful. What excites me most is creating solutions
-        that genuinely solve problems and improve how people interact with
-        technology. I believe great design is about clarity, usability, and
-        delivering real value — not just aesthetics. If you’re looking for a
-        developer-designer who blends technical expertise with strong design
-        sense and a passion for impactful UX, let’s talk.
+        I create minimal, bold digital experiences that are intuitive, visually
+        focused, and purposeful. What drives me is building solutions that
+        genuinely improve how people interact with technology. For me, great
+        design is about clarity, usability, and delivering measurable value, not
+        just aesthetics. If you’re looking for a developer-designer who blends
+        technical skill with strong design sense and a commitment to meaningful
+        UX,
+        <span class="text-secondary italic hover:underline">let’s connect</span
+        >.
       </motion.p>
     </motion.div>
     <Button
