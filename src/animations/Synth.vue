@@ -119,7 +119,10 @@ onMounted(() => {
 
     const t = clock.getElapsedTime();
     if (roads) {
-      roads.rotation.x = t * 0.2;
+      roads.rotation.x = t * 0.1;
+    }
+    if (sun) {
+      sun.position.y = Math.sin(t * 0.05) * 11;
     }
 
     renderer.render(scene, camera);
