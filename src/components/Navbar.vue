@@ -147,8 +147,6 @@ const lowLine = {
     },
   },
 };
-
-
 </script>
 
 <template>

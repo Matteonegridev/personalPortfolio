@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Button from "../components/Button.vue";
-import HeroBackground from "../animations/HeroBackground.vue";
+// import HeroBackground from "../animations/HeroBackground.vue";
+import Synth from "../animations/Synth.vue";
 import { easeOut, motion, useTime, useTransform } from "motion-v";
 
 // Button Effect:
@@ -67,7 +68,8 @@ const subtitleVariant = {
 
 <template>
   <section class="relative mb-6 h-[100dvh]">
-    <HeroBackground />
+    <Synth />
+    <!-- <HeroBackground /> -->
     <div class="flex h-full flex-col justify-center max-md:mt-5">
       <motion.h1
         :variants="parentTitle"

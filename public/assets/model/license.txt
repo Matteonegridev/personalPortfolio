@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vaporwave Sunset
+* source:	https://sketchfab.com/3d-models/vaporwave-sunset-0854e60de36241ce9514b40d05a30581
+* author:	wilemben (https://sketchfab.com/wilemben)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vaporwave Sunset" (https://sketchfab.com/3d-models/vaporwave-sunset-0854e60de36241ce9514b40d05a30581) by wilemben (https://sketchfab.com/wilemben) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
