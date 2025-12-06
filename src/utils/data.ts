@@ -3,14 +3,15 @@ import mockupGreenprints from "/assets/img/mockup-greenprints.png";
 import mockupForm from "/assets/img/mockup-form.png";
 import mockupMeisapp from "/assets/img/mockup-meisapp.png";
 import mockupEquityease from "/assets/img/mockup-equit.png";
+import mockupTravelLog from "/assets/img/mockup-travel-log.png";
 
 type Project = {
   image: string;
   name: string;
   description: string;
   tech: string[];
-  github: string;
-  website: string;
+  github?: string;
+  website?: string;
 }[];
 
 export const projects: Project = [
@@ -78,5 +79,16 @@ export const projects: Project = [
     ],
     github: "https://github.com/Matteonegridev/EquityEase",
     website: "https://equityease.netlify.app",
+  },
+  {
+    image: mockupTravelLog,
+    name: "Travel Log",
+    description:
+      "Log your travels by attaching memories to precise map locations.Upload photos and highlights as you explore. A simple way to organize your journeys!",
+    tech: [
+      "vi-file-type-tailwind",
+      "vi-file-type-typescript-official",
+      "vi-file-type-nuxt",
+    ],
   },
 ];

@@ -4,8 +4,8 @@ const props = defineProps<{
   description: string;
   title: string;
   tech: string[];
-  web: string;
-  github: string;
+  web?: string;
+  github?: string;
 }>();
 </script>
 
@@ -39,13 +39,18 @@ const props = defineProps<{
           />
         </span>
       </div>
-      <div class="inline-flex gap-2">
+      <div v-if="props.github || props.web" class="inline-flex gap-2">
         <a :href="props.github" target="_blank" rel="noopener noreferrer"
           ><v-icon name="bi-github" scale="1.5" class="text-white"
         /></a>
         <a :href="props.web" target="_blank" rel="noopener noreferrer"
           ><v-icon name="md-language" scale="1.5" class="text-white"
         /></a>
+      </div>
+      <div v-else class="inline-flex gap-2">
+        <p class="text-secondary note-details-mobile lg:note-details-desktop">
+          Coming soon!
+        </p>
       </div>
     </div>
   </div>

@@ -14,6 +14,7 @@ import { SiExpress } from "oh-vue-icons/icons";
 import { ViFileTypeSass } from "oh-vue-icons/icons";
 import { ViFileTypeTypescriptOfficial } from "oh-vue-icons/icons";
 import { RiShareBoxFill } from "oh-vue-icons/icons";
+import { ViFileTypeNuxt } from "oh-vue-icons/icons";
 
 addIcons(
   BiGithub,
@@ -26,6 +27,7 @@ addIcons(
   ViFileTypeSass,
   ViFileTypeTypescriptOfficial,
   RiShareBoxFill,
+  ViFileTypeNuxt,
 );
 
 const app = createApp(App);
