@@ -2,6 +2,11 @@
 import Button from "../components/Button.vue";
 import Cube from "../animations/Cube.vue";
 import { motion } from "motion-v";
+import { onMounted, onUnmounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 const navTo = () => {
   window.open("https://www.linkedin.com/in/matteonegri17/", "_blank");
 };
@@ -36,6 +41,25 @@ const childrenEffect = {
     },
   },
 };
+
+let triggers: ScrollTrigger[] = [];
+
+onMounted(() => {
+  const highlights = gsap.utils.toArray<HTMLElement>(".text-highlight");
+
+  highlights.forEach((el) => {
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: "-100px center",
+      toggleClass: "active",
+    });
+    triggers.push(st);
+  });
+});
+
+onUnmounted(() => {
+  triggers.forEach((st) => st.kill());
+});
 </script>
 
 <template>
@@ -45,11 +69,13 @@ const childrenEffect = {
   <section class="mb-12 grid grid-cols-1 md:gap-2 lg:grid-cols-2 lg:gap-16">
     <div class="">
       <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
-        Developer<span class="text-secondary">.</span> UX Designer<span
+        Developer<span class="text-secondary">.</span>UX Designer<span
           class="text-secondary"
           >.</span
         >
-        Shaping purposeful digital experiences with a touch of Italian craft.
+        Shaping
+        <mark class="text-highlight">purposeful digital experiences</mark> with
+        a touch of Italian craft.
       </h3>
       <Button
         variant="primary"
@@ -67,29 +93,32 @@ const childrenEffect = {
       class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-balance text-white max-sm:pt-4 lg:place-content-end"
     >
       <motion.p :variants="childrenEffect">
-        I'm Matteo, a developer and UX-focused designer based in London. I work
-        within modern front-end ecosystems, mainly
-        <span class="text-secondary text-bold italic"></span>React and Vue,
-        pairing them with workflows that keep design and development tightly
-        aligned.
+        I'm Matteo,
+        <mark class="text-highlight">a developer and UX-focused designer</mark>
+        based in London. I work within modern front-end ecosystems, mainly React
+        and Vue, pairing them with workflows that keep design and development
+        tightly aligned.
       </motion.p>
       <motion.p :variants="childrenEffect" class="mt-6">
         Over the years, I’ve worked across graphic design, web development,
         animation, UX thinking, and product design. Each project, big or small,
         has strengthened my problem-solving skills and deepened my focus on user
         experience. This range has made me adaptable and pragmatic, able to
-        balance creative exploration with technical rigor.
+        <mark class="text-highlight"
+          >balance creative exploration with technical rigor.</mark
+        >
       </motion.p>
       <motion.p :variants="childrenEffect" class="mt-6">
-        I create minimal, bold digital experiences that are intuitive, visually
-        focused, and purposeful. What drives me is building solutions that
-        genuinely improve how people interact with technology. For me, great
-        design is about clarity, usability, and delivering measurable value, not
-        just aesthetics. If you’re looking for a developer-designer who blends
-        technical skill with strong design sense and a commitment to meaningful
-        UX,
-        <span class="text-secondary italic hover:underline">let’s connect</span
-        >.
+        I create
+        <mark class="text-highlight">minimal, bold digital experiences</mark>
+        that are intuitive, visually focused, and purposeful. What drives me is
+        building solutions that genuinely improve how people interact with
+        technology. For me, great design is about
+        <mark class="text-highlight"
+          >clarity, usability, and delivering measurable value</mark
+        >, not just aesthetics. If you’re looking for a developer-designer who
+        blends technical skill with strong design sense and a commitment to
+        meaningful UX, <mark class="text-highlight">let’s connect</mark>.
       </motion.p>
     </motion.div>
     <Button

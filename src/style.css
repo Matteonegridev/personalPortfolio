@@ -46,6 +46,9 @@
   --color-primaryDark-variant: #2a2cea;
   --color-errors: #fa5639;
 
+  --duration: 1s;
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+
   --font-NeueBold: "Base Neue Bold";
   --font-NeueSemiBold: "Base Neue Semibold";
   --font-NeueRegular: "Base Neue Regular";
@@ -112,6 +115,26 @@
 :root {
   --margin-mobile: 2.25rem;
   --margin-desktop: 3.5rem;
+}
+@layer components {
+  .text-highlight {
+    --line-size: 0.5em;
+    all: unset;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+      transparent calc(100% - var(--line-size)),
+      var(--color-primaryDark-variant) var(--line-size)
+    );
+    background-size: 0% 100%;
+    transition:
+      background-image calc(var(--duration) / 4) var(--ease),
+      color calc(var(--duration) / 4) var(--ease),
+      background-size var(--duration) var(--ease);
+  }
+
+  .text-highlight.active {
+    background-size: 100% 100%;
+  }
 }
 
 @utility title-h1 {
