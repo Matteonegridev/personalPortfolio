@@ -123,7 +123,7 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(
       transparent calc(100% - var(--line-size)),
-      var(--color-primaryDark-variant) var(--line-size)
+      var(--color-primary) var(--line-size)
     );
     background-size: 0% 100%;
     transition:
