@@ -9,7 +9,7 @@ const containerRef = ref<HTMLElement | null>(null);
 const cards = [
   {
     title: "Frontend",
-    items: ["React.js", "Vue.js", "Three.js", "Motion"],
+    items: ["React.js", "Vue.js", "Three.js", "Motion", "GSAP"],
     color: "from-[rgba(86,57,250,0.22)] to-[rgba(149,120,253,0.18)]",
   },
   {
@@ -105,7 +105,14 @@ onUnmounted(() => {
             >
               {{ card.title }}
             </div>
-            <div class="space-y-3">
+            <div
+              class="w-full"
+              :class="
+                card.items.length > 3
+                  ? 'card-grid-cols [--col-min-width:350px]'
+                  : 'card-grid-one-col'
+              "
+            >
               <div
                 v-for="item in card.items"
                 :key="item"
