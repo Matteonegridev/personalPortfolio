@@ -50,7 +50,7 @@ onMounted(() => {
   highlights.forEach((el) => {
     const st = ScrollTrigger.create({
       trigger: el,
-      start: "-100px center",
+      start: "-50px center",
       toggleClass: "active",
     });
     triggers.push(st);

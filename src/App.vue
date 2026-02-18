@@ -2,10 +2,11 @@
 import Hero from "./layout/Hero.vue";
 import Navbar from "./components/Navbar.vue";
 import About from "./layout/About.vue";
-import Banner from "./utils/Banner.vue";
+// import Banner from "./utils/Banner.vue";
 import Projects from "./layout/Projects.vue";
 import Contact from "./layout/Contact.vue";
 import Footer from "./layout/Footer.vue";
+import Techs from "./utils/Techs.vue";
 </script>
 
 <template>
@@ -13,7 +14,8 @@ import Footer from "./layout/Footer.vue";
     <Navbar />
     <Hero />
     <About />
-    <Banner />
+    <!-- <Banner /> -->
+    <Techs />
     <Projects />
     <Contact />
     <Footer />
