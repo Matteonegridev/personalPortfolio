@@ -51,9 +51,9 @@ const scale = cardProgress.map((p) => useTransform(p, [0, 1], [1, 0.9]));
 </script>
 
 <template>
-  <section ref="containerRef" class="relative h-[300vh]">
+  <section ref="containerRef" class="relative h-[500vh]">
     <div
-      class="sticky top-0 flex h-screen items-center justify-center overflow-hidden perspective-[1000px]"
+      class="sticky top-0 flex h-[100dvh] items-center justify-center overflow-hidden perspective-[1000px]"
     >
       <div
         class="relative flex h-[400px] w-full max-w-4xl items-center justify-center"
