@@ -151,7 +151,7 @@ const lowLine = {
 
 <template>
   <header
-    class="bg-dark/5 fixed top-0 right-0 left-0 z-50 flex items-center justify-around px-10 py-5 backdrop-blur-lg"
+    class="fixed top-0 right-0 left-0 z-50 flex items-center justify-around px-10 py-5 backdrop-blur-lg"
   >
     <div class="w-56"><Logo /></div>
 
