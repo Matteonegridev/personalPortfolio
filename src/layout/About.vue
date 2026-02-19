@@ -69,12 +69,10 @@ onUnmounted(() => {
   </h2>
   <section class="mb-12 grid grid-cols-1 md:gap-2 lg:grid-cols-2 lg:gap-16">
     <div class="">
-      <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
-        I'm Matteo, Frontend Developer <span class="text-secondary">&</span> UX
-        Designer based in London.<mark class="text-highlight"
-          >I build purposeful</mark
-        >
-        digital experiences with a touch of Italian craft.
+      <h3 class="title-mobile-h4 lg:title-h4 leading-md mb-4 text-white">
+        Italian craft.
+        <mark class="text-highlight">Building purposeful digital products</mark>
+        from London.
       </h3>
       <Button
         variant="primary"
