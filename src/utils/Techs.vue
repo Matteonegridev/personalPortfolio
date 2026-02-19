@@ -109,7 +109,7 @@ onUnmounted(() => {
               class="w-full"
               :class="
                 card.items.length > 3
-                  ? 'card-grid-cols [--col-min-width:250px]'
+                  ? 'card-grid-cols [--col-min-width:300px]'
                   : 'card-grid-one-col'
               "
             >
