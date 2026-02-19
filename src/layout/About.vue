@@ -52,6 +52,7 @@ onMounted(() => {
       trigger: el,
       start: "-50px center",
       toggleClass: "active",
+      // onEnter: () => el.classList.add("active"),
     });
     triggers.push(st);
   });
@@ -69,7 +70,7 @@ onUnmounted(() => {
   <section class="mb-12 grid grid-cols-1 md:gap-2 lg:grid-cols-2 lg:gap-16">
     <div class="">
       <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
-        Developer<span class="text-secondary">.</span>UX Designer<span
+        Developer<span class="text-secondary">.</span> UX Designer<span
           class="text-secondary"
           >.</span
         >
@@ -90,11 +91,13 @@ onUnmounted(() => {
       :variants="parentEffect"
       initial="closed"
       while-in-view="open"
-      class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-balance text-white max-sm:pt-4 lg:place-content-end"
+      class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-pretty text-white max-sm:pt-4 lg:place-content-end"
     >
       <motion.p :variants="childrenEffect">
         I'm Matteo,
-        <mark class="text-highlight">a developer and UX-focused designer</mark>
+        <mark class="text-highlight"
+          >front-end developer and UX-focused designer</mark
+        >
         based in London. I work within modern front-end ecosystems, mainly React
         and Vue, pairing them with workflows that keep design and development
         tightly aligned.
@@ -113,9 +116,10 @@ onUnmounted(() => {
         <mark class="text-highlight">minimal, bold digital experiences</mark>
         that are intuitive, visually focused, and purposeful. What drives me is
         building solutions that genuinely improve how people interact with
-        technology. For me, great design is about
-        <mark class="text-highlight"
-          >clarity, usability, and delivering measurable value</mark
+        technology. For me,
+        <mark class="text-highlight">
+          great design is about clarity, usability, and delivering measurable
+          value</mark
         >, not just aesthetics. If you’re looking for a developer-designer who
         blends technical skill with strong design sense and a commitment to
         meaningful UX, <mark class="text-highlight">let’s connect</mark>.
