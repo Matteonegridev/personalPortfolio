@@ -95,7 +95,7 @@ onUnmounted(() => {
         <div
           v-for="(card, i) in cards"
           :key="card.title"
-          class="card absolute flex h-96 w-full flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-br p-8 shadow-2xl backdrop-blur-xl"
+          class="card absolute flex h-96 w-66 flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-br p-8 shadow-2xl backdrop-blur-xl md:w-full"
           :class="card.color"
         >
           <!-- content -->
@@ -109,7 +109,7 @@ onUnmounted(() => {
               class="w-full"
               :class="
                 card.items.length > 3
-                  ? 'card-grid-cols [--col-min-width:350px]'
+                  ? 'card-grid-cols [--col-min-width:250px]'
                   : 'card-grid-one-col'
               "
             >
