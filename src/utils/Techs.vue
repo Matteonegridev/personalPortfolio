@@ -24,7 +24,7 @@ const cards = [
   },
   {
     title: "Design",
-    items: ["UI/UX", "Motion", "Accessibility"],
+    items: ["User Interface", "User Experience", "Figma", "Accessibility"],
     color: "from-[rgba(212,198,253,0.16)] to-[rgba(86,57,250,0.12)]",
   },
   {
