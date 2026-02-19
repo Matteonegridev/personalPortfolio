@@ -64,19 +64,17 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <h2 class="text-secondary title-mobile-h4 lg:title-h3 mt-20 mb-14" id="About">
+  <h2 class="text-secondary title-mobile-h4 lg:title-h3 mt-20 mb-10" id="About">
     About
   </h2>
   <section class="mb-12 grid grid-cols-1 md:gap-2 lg:grid-cols-2 lg:gap-16">
     <div class="">
       <h3 class="title-mobile-h4 lg:title-h4 mb-2 text-white">
-        Developer<span class="text-secondary">.</span> UX Designer<span
-          class="text-secondary"
-          >.</span
+        I'm Matteo, Frontend Developer <span class="text-secondary">&</span> UX
+        Designer based in London.<mark class="text-highlight"
+          >I build purposeful</mark
         >
-        Shaping
-        <mark class="text-highlight">purposeful digital experiences</mark> with
-        a touch of Italian craft.
+        digital experiences with a touch of Italian craft.
       </h3>
       <Button
         variant="primary"
@@ -91,38 +89,34 @@ onUnmounted(() => {
       :variants="parentEffect"
       initial="closed"
       while-in-view="open"
-      class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-pretty text-white max-sm:pt-4 lg:place-content-end"
+      class="body-font-mobile lg:body-font-desktop relative overflow-hidden text-pretty text-white max-sm:pt-4 lg:content-center"
     >
       <motion.p :variants="childrenEffect">
-        I'm Matteo,
+        I specialize in modern front-end ecosystems, mainly React and Vue,
+        pairing them with workflows that
         <mark class="text-highlight"
-          >front-end developer and UX-focused designer</mark
-        >
-        based in London. I work within modern front-end ecosystems, mainly React
-        and Vue, pairing them with workflows that keep design and development
-        tightly aligned.
+          >keep design and technical execution tightly aligned</mark
+        >.
       </motion.p>
+
       <motion.p :variants="childrenEffect" class="mt-6">
-        Over the years, I’ve worked across graphic design, web development,
-        animation, UX thinking, and product design. Each project, big or small,
-        has strengthened my problem-solving skills and deepened my focus on user
-        experience. This range has made me adaptable and pragmatic, able to
+        With a background spanning graphic design, animation, and product
+        design, I bring a pragmatic, adaptable approach to problem-solving. I
+        don't just build things to look good; I’m driven by building intuitive,
+        purposeful solutions that
         <mark class="text-highlight"
-          >balance creative exploration with technical rigor.</mark
-        >
+          >genuinely improve how people interact with technology</mark
+        >.
       </motion.p>
+
       <motion.p :variants="childrenEffect" class="mt-6">
-        I create
-        <mark class="text-highlight">minimal, bold digital experiences</mark>
-        that are intuitive, visually focused, and purposeful. What drives me is
-        building solutions that genuinely improve how people interact with
-        technology. For me,
-        <mark class="text-highlight">
-          great design is about clarity, usability, and delivering measurable
+        For me,
+        <mark class="text-highlight"
+          >great design is about clarity, usability, and delivering measurable
           value</mark
-        >, not just aesthetics. If you’re looking for a developer-designer who
-        blends technical skill with strong design sense and a commitment to
-        meaningful UX, <mark class="text-highlight">let’s connect</mark>.
+        >. If you’re looking for a hybrid developer-designer who balances
+        creative exploration with technical rigor,
+        <mark class="text-highlight">let’s connect</mark>.
       </motion.p>
     </motion.div>
     <Button
