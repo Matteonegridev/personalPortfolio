@@ -10,8 +10,8 @@ const props = defineProps<{
 </script>
 
 <template>
-  <article
-    class="project-card border-dark-variant bg-dark absolute top-0 left-0 min-h-[600px] w-[400px] cursor-pointer rounded-xl border px-2 py-4"
+  <li
+    class="carousel-slide border-dark-variant bg-dark flex-[0_0_33%] cursor-pointer rounded-xl border px-2 py-4"
   >
     <div class="space-y-2 p-2">
       <h2
@@ -55,5 +55,5 @@ const props = defineProps<{
         </p>
       </div>
     </div>
-  </article>
+  </li>
 </template>
