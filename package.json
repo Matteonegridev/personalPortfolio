@@ -16,6 +16,7 @@
     "netlify-cli": "^21.6.0",
     "oh-vue-icons": "^1.0.0-rc3",
     "three": "^0.176.0",
+    "vite-plugin-glsl": "^1.5.5",
     "vue": "^3.5.13",
     "vue3-carousel": "^0.15.0"
   },
