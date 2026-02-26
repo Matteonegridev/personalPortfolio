@@ -1,160 +1,156 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { projects } from "../utils/data";
+import gsap from "gsap";
+import { Draggable } from "gsap/Draggable";
+import InertiaPlugin from "gsap/InertiaPlugin";
 import ProjectCard from "./ProjectCard.vue";
+import CustomCursor from "./CustomCursor.vue";
 
-// 1. Reactive State
-const currentIndex = ref(0);
+gsap.registerPlugin(Draggable, InertiaPlugin);
 
-const trackTransform = computed(() => {
-  return `translateX(-${currentIndex.value * 350}px)`;
-});
+const viewportRef = ref<HTMLElement | null>(null);
+const cardRefs = ref<HTMLElement[]>([]);
+const proxy = document.createElement("div");
 
-const nextSlide = () => {
-  console.log(
-    "Next clicked! Current Index:",
-    currentIndex.value,
-    "Total Projects:",
-    projects.length,
+const isCursorActive = ref(false);
+
+let draggableInstance: Draggable[] | null = null;
+let resizeObserver: ResizeObserver | null = null;
+
+// 1. Reactive Radius to sync JS and HTML
+const radius = ref(2000);
+
+const DRAG_SENSITIVITY = 0.0006; // Restored for usability
+
+const currentCardSpread = ref(0);
+const currentSnapDistance = ref(0);
+
+const calculateResponsiveConfig = () => {
+  const width = window.innerWidth;
+  const isMobile = width < 768;
+
+  // Update the radius dynamically based on screen size
+  // Using width * 1.5 creates a gentle curve. Adjust multiplier to taste.
+  radius.value = Math.max(width * 1.5, 1000);
+
+  currentCardSpread.value = isMobile ? 0.4 : 0.28;
+  currentSnapDistance.value = currentCardSpread.value / DRAG_SENSITIVITY;
+};
+
+const renderArc = () => {
+  if (!cardRefs.value.length) return;
+
+  const proxyX = gsap.getProperty(proxy, "x") as number;
+  const proxyRad = proxyX * DRAG_SENSITIVITY;
+
+  const total = cardRefs.value.length;
+  const totalSpread = total * currentCardSpread.value;
+
+  // 2. Fixed center index for perfect alignment
+  const centerIndex = Math.floor(total / 2);
+
+  const wrapAngle = gsap.utils.wrap(
+    -Math.PI / 2 - totalSpread / 2,
+    -Math.PI / 2 + totalSpread / 2,
   );
-  if (currentIndex.value < projects.concat.length - 1) {
-    currentIndex.value++;
-  }
+
+  cardRefs.value.forEach((card, index) => {
+    const offsetFromCenter = index - centerIndex;
+    const rawAngle =
+      -Math.PI / 2 + offsetFromCenter * currentCardSpread.value + proxyRad;
+    const angle = wrapAngle(rawAngle);
+
+    // 3. Use the reactive radius for math
+    const x = Math.cos(angle) * radius.value;
+    const y = Math.sin(angle) * radius.value;
+
+    const distFromTop = Math.abs(angle - -Math.PI / 2);
+    const zIndex = Math.round(100 - distFromTop * 100);
+
+    gsap.set(card, {
+      x,
+      y,
+      zIndex,
+      xPercent: -50,
+      yPercent: -50,
+      rotation: (angle + Math.PI / 2) * (180 / Math.PI),
+    });
+  });
 };
-const prevSlide = () => {
-  if (currentIndex.value > 0) {
-    currentIndex.value--;
-  }
+
+const initCarousel = () => {
+  if (!viewportRef.value || cardRefs.value.length === 0) return;
+
+  calculateResponsiveConfig();
+  gsap.set(proxy, { x: 0, y: 0 });
+  renderArc();
+
+  resizeObserver = new ResizeObserver(() => {
+    calculateResponsiveConfig();
+    renderArc();
+  });
+  resizeObserver.observe(viewportRef.value);
+
+  draggableInstance = Draggable.create(proxy, {
+    type: "x",
+    trigger: viewportRef.value,
+    inertia: true,
+    snap: {
+      x: (value) =>
+        Math.round(value / currentSnapDistance.value) *
+        currentSnapDistance.value,
+    },
+    maxDuration: 0.6,
+    minDuration: 0.2,
+    overshootTolerance: 0,
+    onDrag: renderArc,
+    onThrowUpdate: renderArc,
+  });
 };
 
-// // 1. Dependency Verification
-// gsap.registerPlugin(Draggable);
+onMounted(initCarousel);
 
-// // let resizeObserver: ResizeObserver;
-// let draggableInstance: Draggable | null = null;
-
-// onMounted(() => {
-//   const container = document.querySelector(".gallery-container") as HTMLElement;
-//   const cards = gsap.utils.toArray<HTMLElement>(".project-card");
-//   const proxy = document.createElement("div"); // The invisible layer we actually drag
-
-//   if (!container || cards.length === 0) return;
-
-//   const total = cards.length;
-//   let rawProgress = 0; // Tracks absolute movement (e.g., -5.2, 10.8)
-//   const dragDistancePerCard = 300; // Pixels required to move to the next card
-
-//   // 2. The Holographic Math Engine
-//   function updateCards() {
-//     const wrappedProgress = gsap.utils.wrap(0, total, rawProgress);
-
-//     const radius = container.offsetWidth * 0.7;
-//     const anglePerCard = Math.PI / 5;
-
-//     cards.forEach((card, i) => {
-//       let diff = i - wrappedProgress;
-
-//       if (diff > total / 2) diff -= total;
-//       if (diff < -total / 2) diff += total;
-
-//       const angle = diff * anglePerCard;
-
-//       const xOffset = radius * Math.sin(angle);
-//       const yOffset = radius * (1 - Math.cos(angle));
-
-//       // THE NEW ADDITION: Rotational Mapping
-//       // Adjust the '15' to increase or decrease the severity of the tilt
-//       const rotation = diff * 25;
-
-//       const alpha = gsap.utils.clamp(0, 1, 2 - Math.abs(diff));
-//       const scale = 1 - Math.abs(diff) * 0.15;
-
-//       gsap.set(card, {
-//         x: xOffset,
-//         y: yOffset,
-//         rotation: rotation, // Re-mapped to the calculated tilt
-//         scale: scale,
-//         autoAlpha: alpha,
-//         zIndex: Math.round(100 - Math.abs(diff) * 10),
-//       });
-//     });
-//   }
-
-//   // Initial setup render
-//   gsap.set(cards, { top: "50%", left: "50%", xPercent: -50, yPercent: -50 });
-//   updateCards();
-
-//   // 3. The Invisible Drag Proxy
-//   draggableInstance = Draggable.create(proxy, {
-//     type: "x",
-//     trigger: container, // Dragging anywhere in the main window triggers the proxy
-//     inertia: false, // We handle our own snapping
-//     onDrag: function () {
-//       // Convert X pixel movement into fractional card progress
-//       rawProgress = this.x / -dragDistancePerCard;
-//       updateCards();
-//     },
-//     onDragEnd: function () {
-//       // 4. The Magnetic Snap
-//       const snappedProgress = Math.round(rawProgress);
-
-//       gsap.to(proxy, {
-//         x: snappedProgress * -dragDistancePerCard,
-//         duration: 0.5,
-//         ease: "power2.out",
-//         onUpdate: function () {
-//           // Read the tweening X value and continuously update the arc
-//           rawProgress =
-//             (gsap.getProperty(proxy, "x") as number) / -dragDistancePerCard;
-//           updateCards();
-//         },
-//       });
-//     },
-//   })[0];
-// });
-
-// onUnmounted(() => {
-//   if (draggableInstance) draggableInstance.kill();
-// });
+onUnmounted(() => {
+  if (resizeObserver && viewportRef.value)
+    resizeObserver.unobserve(viewportRef.value);
+  if (draggableInstance) draggableInstance[0].kill();
+});
 </script>
 
 <template>
   <section
-    aria-roledescription="carousel"
-    aria-label="Highlighted Content"
-    class="carousel relative w-full border border-amber-400"
+    @mouseenter="isCursorActive = true"
+    @mouseleave="isCursorActive = false"
+    class="carousel-arc -mx-[var(--margin-mobile)] lg:-mx-[var(--margin-desktop)] lg:mb-[20rem]"
   >
-    <div class="carousel__anchor w-fit border border-red-400">
-      <div class="carousel__viewport w-full overflow-hidden">
-        <ul
-          class="carousel__track flex w-full list-none gap-10 border border-cyan-400 will-change-transform"
-          :style="{ transform: trackTransform }"
+    <CustomCursor :active="isCursorActive"> Drag </CustomCursor>
+    <div
+      ref="viewportRef"
+      class="arc__viewport relative h-[100dvh] w-full touch-none overflow-hidden active:cursor-grabbing lg:overflow-visible"
+    >
+      <div
+        class="arc__pivot absolute left-1/2 h-0 w-0"
+        :style="{
+          top: `calc(50% + ${radius}px)`,
+          transform: 'translateX(-50%)',
+        }"
+      >
+        <div
+          v-for="value in projects"
+          :key="value.name"
+          ref="cardRefs"
+          class="arc__card absolute will-change-transform"
+          style="top: 0; left: 0; transform-origin: center center"
         >
           <ProjectCard
-            v-for="value in projects"
-            :key="value.name"
             :name="value.name"
             :image="value.image"
             :description="value.description"
             :tech="value.tech"
+            :website="value.website"
             :github="value.github"
-            :web="value.website"
           />
-        </ul>
-
-        <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-4">
-          <button
-            @click="prevSlide"
-            class="bg-secondary cursor-pointer px-4 py-2 text-black"
-          >
-            Prev
-          </button>
-          <button
-            @click="nextSlide"
-            class="bg-secondary cursor-pointer px-4 py-2 text-black"
-          >
-            Next
-          </button>
         </div>
       </div>
     </div>

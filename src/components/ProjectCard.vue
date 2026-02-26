@@ -10,8 +10,8 @@ const props = defineProps<{
 </script>
 
 <template>
-  <li
-    class="carousel-slide border-dark-variant bg-dark flex-[0_0_33%] cursor-pointer rounded-xl border px-2 py-4"
+  <article
+    class="arc__slide border-dark-variant bg-dark flex w-[300px] cursor-pointer flex-col justify-center gap-10 border px-2 py-4 active:cursor-pointer lg:h-[550px] lg:w-[450px]"
   >
     <div class="space-y-2 p-2">
       <h2
@@ -23,37 +23,54 @@ const props = defineProps<{
         {{ props.description }}
       </p>
     </div>
+
     <div class="px-2 py-4">
       <img
         :src="props.image"
         loading="lazy"
-        class="aspect-[4/3] h-auto w-full object-contain lg:aspect-video"
+        draggable="false"
+        class="pointer-events-none aspect-[4/3] h-auto w-full object-contain select-none lg:aspect-video"
       />
     </div>
+
     <div class="flex justify-between px-2 py-2 lg:px-4">
       <div class="flex flex-wrap items-center gap-2">
-        <span v-for="tech in props.tech">
+        <span v-for="tech in props.tech" :key="tech">
           <v-icon
-            :key="tech"
             :name="tech"
             scale="1.5"
             class="bg-dark border-dark-variant rounded-full border p-1 text-white"
           />
         </span>
       </div>
-      <div v-if="props.github || props.website" class="inline-flex gap-2">
-        <a :href="props.github" target="_blank" rel="noopener noreferrer"
-          ><v-icon name="bi-github" scale="1.5" class="text-white"
-        /></a>
-        <a :href="props.website" target="_blank" rel="noopener noreferrer"
-          ><v-icon name="md-language" scale="1.5" class="text-white"
-        /></a>
+
+      <div
+        v-if="props.github || props.website"
+        class="relative z-50 inline-flex gap-2"
+      >
+        <a
+          :href="props.github"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-opacity hover:opacity-80"
+        >
+          <v-icon name="bi-github" scale="1.5" class="text-white" />
+        </a>
+        <a
+          :href="props.website"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-opacity hover:opacity-80"
+        >
+          <v-icon name="md-language" scale="1.5" class="text-white" />
+        </a>
       </div>
+
       <div v-else class="inline-flex gap-2">
         <p class="text-secondary note-details-mobile lg:note-details-desktop">
           Coming soon!
         </p>
       </div>
     </div>
-  </li>
+  </article>
 </template>
