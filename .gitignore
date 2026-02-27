@@ -30,3 +30,4 @@ src/animations/Sphere.vue
 # Local Netlify folder
 .netlify
 CODE.md
+CURSOR.md

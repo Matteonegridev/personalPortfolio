@@ -39,13 +39,6 @@ let tl: gsap.core.Timeline | null = null;
 onMounted(() => {
   const cards = gsap.utils.toArray(".card") as gsap.TweenTarget[];
 
-  gsap.set(cards, {
-    x: (i) => i * -3,
-    y: window.innerHeight + 100,
-    rotation: 0,
-    zIndex: (i) => i,
-  });
-
   tl = gsap.timeline({
     scrollTrigger: {
       trigger: containerRef.value,
@@ -59,16 +52,28 @@ onMounted(() => {
   cards.forEach((card, i) => {
     if (!tl) return;
 
-    tl.to(card, {
-      y: i * 6,
-      scale: 1 - i * 0.01,
-      duration: 1,
-      ease: "power2.out",
-    });
+    tl.fromTo(
+      card,
+      {
+        x: (i) => i * -3,
+        y: window.innerHeight + 100,
+        rotation: 0,
+        zIndex: (i) => i,
+      },
+      {
+        // placement
+        y: i * 6,
+        // each becomes smaller and smaller
+        scale: 1 - i * 0.01,
+        duration: 2,
+        ease: "power2.out",
+      },
+    );
 
     tl.to(
       card,
       {
+        //card rotation: even 2, odds -2
         rotation: i % 2 === 0 ? 2 : -2,
         duration: 0.8,
         ease: "power1.out",
