@@ -8,7 +8,6 @@ import Contact from "./layout/Contact.vue";
 import Footer from "./layout/Footer.vue";
 import Techs from "./utils/Techs.vue";
 import ProjectCarousel from "./components/ProjectCarousel.vue";
-// import ThreeCanvas from "./animations/ThreeCanvas.vue";
 </script>
 
 <template>
@@ -19,7 +18,7 @@ import ProjectCarousel from "./components/ProjectCarousel.vue";
     <!-- <Banner /> -->
     <Techs />
     <!-- <Projects /> -->
-    <!-- <ThreeCanvas /> -->
+
     <ProjectCarousel />
     <Contact />
     <Footer />

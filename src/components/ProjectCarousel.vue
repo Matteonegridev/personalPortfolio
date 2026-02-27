@@ -1,31 +1,10 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { projects } from "../utils/data";
 import ProjectCard from "./ProjectCard.vue";
+import CustomCursor from "./CustomCursor.vue";
 
-// 1. Reactive State
-const currentIndex = ref(0);
-
-const trackTransform = computed(() => {
-  return `translateX(-${currentIndex.value * 350}px)`;
-});
-
-const nextSlide = () => {
-  console.log(
-    "Next clicked! Current Index:",
-    currentIndex.value,
-    "Total Projects:",
-    projects.length,
-  );
-  if (currentIndex.value < projects.concat.length - 1) {
-    currentIndex.value++;
-  }
-};
-const prevSlide = () => {
-  if (currentIndex.value > 0) {
-    currentIndex.value--;
-  }
-};
+const cursorActive = ref(false);
 
 // // 1. Dependency Verification
 // gsap.registerPlugin(Draggable);
@@ -123,12 +102,14 @@ const prevSlide = () => {
     aria-roledescription="carousel"
     aria-label="Highlighted Content"
     class="carousel relative w-full border border-amber-400"
+    @mouseenter="cursorActive = true"
+    @mouseleave="cursorActive = false"
   >
+    <CustomCursor :is-active="cursorActive" />
     <div class="carousel__anchor w-fit border border-red-400">
       <div class="carousel__viewport w-full overflow-hidden">
         <ul
           class="carousel__track flex w-full list-none gap-10 border border-cyan-400 will-change-transform"
-          :style="{ transform: trackTransform }"
         >
           <ProjectCard
             v-for="value in projects"
@@ -143,16 +124,10 @@ const prevSlide = () => {
         </ul>
 
         <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-4">
-          <button
-            @click="prevSlide"
-            class="bg-secondary cursor-pointer px-4 py-2 text-black"
-          >
+          <button class="bg-secondary cursor-pointer px-4 py-2 text-black">
             Prev
           </button>
-          <button
-            @click="nextSlide"
-            class="bg-secondary cursor-pointer px-4 py-2 text-black"
-          >
+          <button class="bg-secondary cursor-pointer px-4 py-2 text-black">
             Next
           </button>
         </div>
